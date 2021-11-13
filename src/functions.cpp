@@ -2,9 +2,9 @@
 #include <string>
 
 
-int checkOwnerPass();
+int ownerLogin();
 
-int checkOwnerPass(){
+int ownerLogin(){
     std::string inputPass;
     std::string pass = "admin";
     std::cout << "Passwoord: ";
@@ -20,3 +20,4 @@ int checkOwnerPass(){
     }
     
 }
+

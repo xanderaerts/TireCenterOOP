@@ -12,7 +12,7 @@ int main(){
         
         switch(choice){
             case 1:
-                checkOwnerPass();
+                ownerLogin();
                 break;
             case 2:
                 std::cout << "werknemer" << std::endl;
@@ -26,6 +26,4 @@ int main(){
 
     }while(choice != 3);
     return 0;
-
-
 }
