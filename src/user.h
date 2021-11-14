@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 
 class User{
@@ -5,12 +6,21 @@ class User{
         std::string username;
         std::string password;
         std::string role;
+        bool status;
     public:
-        std::string getName();
-        std::string getPassword;
-        std::string getRole;
+        User(){
+            username = "admin";
+            password = "admin";
+            role = "admin";
+            status = 0;
+        }
+        std::string getUsername();
+        std::string getPassword();
+        std::string getRole();
+        bool getStatus();
 
-        std::string setName();
-        std::string setPassword();
-        std::string setRole();
+        std::string setUsername(std::string inputUsername);
+        std::string setPassword(std::string inputPassword);
+        std::string setRole(std::string inputRole);
+        bool setStatus(bool satus);
 };

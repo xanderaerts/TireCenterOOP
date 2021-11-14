@@ -12,7 +12,8 @@ int main(){
         
         switch(choice){
             case 1:
-                ownerLogin();
+                /*naar file schrijven welke activce user is ofzo iets we vinden wel iets*/
+                Login();
                 break;
             case 2:
                 std::cout << "werknemer" << std::endl;
