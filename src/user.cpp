@@ -13,12 +13,6 @@ std::string User::getRole(){
     return role;
 }
 
-bool User::getStatus(){
-    return status;
-
-}
-
-
 void User::setUsername(std::string inputUsername){
     username = inputUsername;
 }
@@ -29,8 +23,4 @@ void User::setPassword(std::string inputPassword){
 
 void User::setRole(std::string inputRole){
     role = inputRole;
-}
-
-void User::setStatus(bool inputStatus){
-    status = inputStatus;
 }

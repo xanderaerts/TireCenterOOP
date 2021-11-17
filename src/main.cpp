@@ -8,7 +8,7 @@
 
 
 void Login();
-int printMenu();
+void printMenu();
 
 User user;
 
@@ -25,6 +25,7 @@ int main(){
         std::cout << "\t1.Manager" << std::endl;
         std::cout << "\t2.Werknemer" << std::endl;
         std::cout << "\t3.Logout" << std::endl;
+        std::cout << "Maak een keuze: ";
         std::cin >> choice;
         
         switch(choice){
@@ -97,8 +98,11 @@ void Login(){
     }    
 }
 
-int printMenu(){
+void printMenu(){
     int choice,choice2;
+    bool validChoice=false;
+
+    while(true){
 
     std::cout << "Welkom " << user.getUsername() << std::endl;
     std::cout << "--------------" << std::endl;
@@ -155,5 +159,6 @@ int printMenu(){
                 choice2 = printMenu2(list);
             }
             break;
+        }
     }
 }

@@ -4,6 +4,11 @@
 #include <iostream>
 Menu menu;
 
+
+std::string Tostring(Menu);
+int printMenu2(std::vector<Menu>);
+
+
 std::string ToString(Menu m){
     switch(m){
         case addOrder:
@@ -29,6 +34,7 @@ std::string ToString(Menu m){
     }
 }
 
+
 int printMenu2(std::vector<Menu>list){
 
     std::string option;
@@ -37,14 +43,29 @@ int printMenu2(std::vector<Menu>list){
     for(Menu i : list){
         option = ToString(i);
         std::cout << "\t" << lineNr<< ": " << option << std::endl;
-        lineNr++;
-
-        
+        lineNr++;        
     }
     std::cout << "Maak een keuze: ";
     std::cin >> choice;
+
+
+    //Menu finalChoice = list[choice];
+    //std::cout << "final : " << finalChoice;
+
+
+   /* switch(finalChoice){
+        case 1:
+            std::cout << "test";
+    }*/
+
+
+
+
+
+        
+
     lineNr = 1;
 
-    return choice;
 
+    return 0;
 }
