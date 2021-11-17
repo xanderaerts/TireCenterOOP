@@ -19,18 +19,18 @@ bool User::getStatus(){
 }
 
 
-std::string User::setUsername(std::string inputUsername){
+void User::setUsername(std::string inputUsername){
     username = inputUsername;
 }
 
-std::string User::setPassword(std::string inputPassword){
+void User::setPassword(std::string inputPassword){
     password = inputPassword;
 }
 
-std::string User::setRole(std::string inputRole){
+void User::setRole(std::string inputRole){
     role = inputRole;
 }
 
-bool User::setStatus(bool inputStatus){
+void User::setStatus(bool inputStatus){
     status = inputStatus;
 }

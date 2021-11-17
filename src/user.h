@@ -9,9 +9,7 @@ class User{
         bool status;
     public:
         User(){
-            username = "admin";
             password = "admin";
-            role = "admin";
             status = 0;
         }
         std::string getUsername();
@@ -19,8 +17,8 @@ class User{
         std::string getRole();
         bool getStatus();
 
-        std::string setUsername(std::string inputUsername);
-        std::string setPassword(std::string inputPassword);
-        std::string setRole(std::string inputRole);
-        bool setStatus(bool satus);
+        void setUsername(std::string inputUsername);
+        void setPassword(std::string inputPassword);
+        void setRole(std::string inputRole);
+        void setStatus(bool satus);
 };

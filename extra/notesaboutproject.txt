@@ -1,0 +1,5 @@
+Nog te doen voor project vandaag!! 
+
+- login manager afmaken
+- class voor facturen maken
+

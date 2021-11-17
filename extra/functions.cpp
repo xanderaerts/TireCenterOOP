@@ -1,62 +1,34 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string>
-#include <vector>
 #include "user.h"
 #include "user.cpp"
-#include "menu.cpp"
 
 
 void Login();
 int printMenu();
 
+
 User user;
 
-int main(){
-    int choice = 0;
-    int logged = 0;
+void Login(int loggedRole){
 
-    do{
-        if(logged == 1){
-            printMenu();
-        }
 
-        std::cout << "-----Login-----" << std::endl;
-        std::cout << "\t1.Manager" << std::endl;
-        std::cout << "\t2.Werknemer" << std::endl;
-        std::cout << "\t3.Logout" << std::endl;
-        std::cin >> choice;
-        
-        switch(choice){
-            case 1:
-                /*naar file schrijven welke activce user is ofzo iets we vinden wel iets*/
-                user.setRole("admin");
-                Login();
-                logged = 1;
-                break;
-            case 2:
-                user.setRole("worker");
-                Login();
-                logged = 1;
-                break;
-            case 3:
-                std::cout << "Tot ziens!";
-                logged = 0;
-                break;
-            default:
-                std::cout <<"Kies een juiste optie!";
-                break;
-        }
-
-    }while(choice != 3);
-    return 0;
-}
-
-void Login(){
-
+    std::cout << loggedRole;
     int attemps;
     std::string inputPass,inputUsername;
 
+    if(loggedRole == 1){
+        user.setRole("admin");
+    }
+    else if(loggedRole == 2){
+        user.setRole("worker");
+    }
+    else{
+        std::cout << "User does not exist.";
+        exit(-1);
+    }
+    std::cout << user.getRole();
     if(user.getRole() == "admin"){
 
         while(attemps < 4 && inputPass != user.getPassword()){
@@ -114,46 +86,54 @@ int printMenu(){
     switch(choice){
         case 1:
             if(user.getRole() == "admin"){
-                std::vector<Menu> list{addOrder};
-                choice2 = printMenu2(list);
+                std::cout << "\t1.Bestelling plaatsen" << std::endl;
+                
+                std::cin >> choice2;
+                
+                
             }
             else if(user.getRole() == "worker"){
-                std::vector<Menu> list{addOrder};
-                choice2 = printMenu2(list);
+                std::cout << "\t1.Bestelling plaatsen" << std::endl;
             }
             break;
         
         case 2:
             if(user.getRole() == "admin"){
-                std::vector<Menu> list{searchArtcle,addArticle,rmArticle,editArticle};
-                choice2 = printMenu2(list);
+                std::cout << "\t1.Artikel opvragen" << std::endl;
+                std::cout << "\t2.Artikel toevoegen" << std::endl;
+                std::cout << "\t3.Artikel verwijderen" << std::endl;
+                std::cout << "\t4.Artikel updaten" << std::endl;
             }
             else if(user.getRole() == "worker"){
-                std::vector<Menu> list{searchArtcle,editArticle};
-                choice2 = printMenu2(list);
+                std::cout << "\t1.Artikel opvragen" << std::endl;
+                std::cout << "\t2.Artikel updaten" << std::endl;
             }    
             break;
         
         case 3:
             if(user.getRole() == "admin"){
-                std::vector<Menu> list{addCust,searchCust,editCust};
-                choice2 = printMenu2(list);
+                std::cout << "\t1.Klant toevoegen" << std::endl;
+                std::cout << "\t2.Klant opvragen" << std::endl;
+                std::cout << "\t3.Klant bewerken" << std::endl;
             }
             else if(user.getRole() == "worker"){
-                std::vector<Menu> list{addCust,searchCust};
-                choice2 = printMenu2(list);
+                std::cout << "\t1.Klant toevoegen" << std::endl;
+                std::cout << "\t2.Klant opvragen" << std::endl;
             }
             break;
         
         case 4:
             if(user.getRole() == "admin"){
-                std::vector<Menu> list{addInvoice,searchInvoice};
-                choice2 = printMenu2(list);
+                std::cout << "opties" << std::endl;
             }
             else if(user.getRole() == "worker"){
-                std::vector<Menu> list{searchInvoice,addInvoice};
-                choice2 = printMenu2(list);
+                std::cout << "opties worker" << std::endl;
+                break;
             }
-            break;
+
+        
+      
+
+
     }
 }
