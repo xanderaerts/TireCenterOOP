@@ -25,9 +25,9 @@ std::string tireCenter::setAddress(std::string inputAdress){
     address = inputAdress;
 }
 std::vector<Article> tireCenter::setArticle(std::vector<Article> inputArticle){
-    //Article = inputArticle;
+    articles = inputArticle;
     
 }
 std::vector<Customer> tireCenter::setCustomer(std::vector<Customer> inputCustomer){
-    //Customer = inputCustomer;
+    customers = inputCustomer;
 }

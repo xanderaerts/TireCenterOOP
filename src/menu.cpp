@@ -5,11 +5,11 @@
 Menu menu;
 
 
-std::string Tostring(Menu);
-int printMenu2(std::vector<Menu>);
+std::string toString(Menu);
+void printMenu2(std::vector<Menu>);
 
 
-std::string ToString(Menu m){
+std::string toString(Menu m){
     switch(m){
         case addOrder:
             return "Bestelling toevoegen";
@@ -32,40 +32,59 @@ std::string ToString(Menu m){
         case searchInvoice:
             return "Factuur opvragen";
     }
+    return 0;
 }
 
 
-int printMenu2(std::vector<Menu>list){
+void printMenu2(std::vector<Menu>list){
 
-    std::string option;
-    int choice,lineNr{1};
+    std::string option,test;
+    int choice=1,lineNr{1};
+    bool exit = false;
 
-    for(Menu i : list){
-        option = ToString(i);
-        std::cout << "\t" << lineNr<< ": " << option << std::endl;
-        lineNr++;        
+    std::cout << "\n\n";
+    std::cout << "Artikels: " << std::endl;
+
+    while(!exit){
+        for(Menu i : list){
+            option = toString(i);
+            std::cout << "\t" << lineNr<< ": " << option << std::endl;
+            lineNr++;        
+        }
+
+        std::cout << "Maak een keuze: ";
+        std::cin >> choice;
+        lineNr = 1;
+
+        Menu useCaseChoice = list[choice-1];
+    
+        switch(useCaseChoice){
+            case addOrder:
+                std::cout << "addorder";break;
+            case searchArtcle:
+                std::cout <<  "searchARt";break;
+            case addArticle:
+                std::cout << "addArticle";break;
+            case rmArticle:
+                std::cout << "rmArticle";break;
+            case editArticle:
+                std::cout << "editArticle";break;
+            case addCust:
+                std::cout << "addCust";break;
+            case searchCust:
+                std::cout << "searchCust";break;
+            case editCust:
+                std::cout << "editCust";break;
+            case addInvoice:
+                std::cout << "addinv";break;
+            case searchInvoice:
+                std::cout << "searchInvoic";break;
+            default:
+                std::cout << "\n\nMaak een geldige keuze!" << std::endl;
+                continue;
+        }
+
     }
-    std::cout << "Maak een keuze: ";
-    std::cin >> choice;
 
-
-    //Menu finalChoice = list[choice];
-    //std::cout << "final : " << finalChoice;
-
-
-   /* switch(finalChoice){
-        case 1:
-            std::cout << "test";
-    }*/
-
-
-
-
-
-        
-
-    lineNr = 1;
-
-
-    return 0;
+    
 }

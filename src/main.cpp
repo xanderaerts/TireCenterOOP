@@ -20,7 +20,7 @@ int main(){
         if(logged == 1){
             printMenu();
         }
-
+        
         std::cout << "-----Login-----" << std::endl;
         std::cout << "\t1.Manager" << std::endl;
         std::cout << "\t2.Werknemer" << std::endl;
@@ -45,7 +45,7 @@ int main(){
                 logged = 0;
                 break;
             default:
-                std::cout <<"Kies een juiste optie!";
+                std::cout <<"\n\nKies een juiste optie! [1-3]" << std::endl;
                 break;
         }
 
@@ -72,7 +72,7 @@ void Login(){
                 printMenu();
             }
             else if(attemps > 3){
-                std::cout << "Acces denied" << std:: endl;
+                std::cout << "Toegang geweigerd, te veel pogingen!" << std:: endl;
                 exit(-1);
             }
         }
@@ -88,6 +88,7 @@ void Login(){
             attemps++;
 
             if(inputPass == user.getPassword()){
+                user.setUsername(inputUsername);
                 printMenu();
             }
             else if(attemps > 3){
@@ -99,66 +100,70 @@ void Login(){
 }
 
 void printMenu(){
-    int choice,choice2;
+    int choice=-1,choice2;
     bool validChoice=false;
 
-    while(true){
-
+    std::cout << "\n\n";
     std::cout << "Welkom " << user.getUsername() << std::endl;
     std::cout << "--------------" << std::endl;
-    std::cout << "Maak een keuze: " << std::endl;
-    std::cout << "\t1.Bestellingen" << std::endl;    
-    std::cout << "\t2.Artikkels (zoeken/voorraad)" << std::endl;
-    std::cout << "\t3.Klantenbeheer" << std::endl;
-    std::cout << "\t4.Facturatie" << std::endl;
-    std::cin >> choice;
+    
+    while(choice<0 || choice > 4){
 
-    std::cout << "Maak een keuze: " << std::endl;
+        std::cout << "\t1.Bestellingen" << std::endl;    
+        std::cout << "\t2.Artikels (zoeken/voorraad)" << std::endl;
+        std::cout << "\t3.Klantenbeheer" << std::endl;
+        std::cout << "\t4.Facturatie" << std::endl;
+        std::cout << "Maak een keuze: ";
+        std::cin >> choice;
 
-    switch(choice){
-        case 1:
-            if(user.getRole() == "admin"){
-                std::vector<Menu> list{addOrder};
-                choice2 = printMenu2(list);
-            }
-            else if(user.getRole() == "worker"){
-                std::vector<Menu> list{addOrder};
-                choice2 = printMenu2(list);
-            }
-            break;
-        
-        case 2:
-            if(user.getRole() == "admin"){
-                std::vector<Menu> list{searchArtcle,addArticle,rmArticle,editArticle};
-                choice2 = printMenu2(list);
-            }
-            else if(user.getRole() == "worker"){
-                std::vector<Menu> list{searchArtcle,editArticle};
-                choice2 = printMenu2(list);
-            }    
-            break;
-        
-        case 3:
-            if(user.getRole() == "admin"){
-                std::vector<Menu> list{addCust,searchCust,editCust};
-                choice2 = printMenu2(list);
-            }
-            else if(user.getRole() == "worker"){
-                std::vector<Menu> list{addCust,searchCust};
-                choice2 = printMenu2(list);
-            }
-            break;
-        
-        case 4:
-            if(user.getRole() == "admin"){
-                std::vector<Menu> list{addInvoice,searchInvoice};
-                choice2 = printMenu2(list);
-            }
-            else if(user.getRole() == "worker"){
-                std::vector<Menu> list{searchInvoice,addInvoice};
-                choice2 = printMenu2(list);
-            }
-            break;
+        switch(choice){
+            case 1:
+                if(user.getRole() == "admin"){
+                    std::vector<Menu> list{addOrder};
+                    //std::vector<Menu> list{addOrder};
+                    printMenu2(list);
+                }
+                else if(user.getRole() == "worker"){
+                    std::vector<Menu> list{addOrder};
+                    printMenu2(list);
+                }
+                break;
+            
+            case 2:
+                if(user.getRole() == "admin"){
+                    std::vector<Menu> list{searchArtcle,addArticle,rmArticle,editArticle};
+                    printMenu2(list);
+                }
+                else if(user.getRole() == "worker"){
+                    std::vector<Menu> list{searchArtcle,editArticle};
+                    printMenu2(list);
+                }    
+                break;
+            
+            case 3:
+                if(user.getRole() == "admin"){
+                    std::vector<Menu> list{addCust,searchCust,editCust};
+                    printMenu2(list);
+                }
+                else if(user.getRole() == "worker"){
+                    std::vector<Menu> list{addCust,searchCust};
+                    printMenu2(list);
+                }
+                break;
+            
+            case 4:
+                if(user.getRole() == "admin"){
+                    std::vector<Menu> list{addInvoice,searchInvoice};
+                    printMenu2(list);
+                }
+                else if(user.getRole() == "worker"){
+                    std::vector<Menu> list{searchInvoice,addInvoice};
+                    printMenu2(list);
+                }
+                break;
+            default:
+            std::cout << "Maak een geldige keuze!"<<std::endl;
+                continue;
         }
     }
 }
