@@ -1,3 +1,7 @@
+#pragma once
+#include <vector>
+#include <string>
+
 enum Menu{
     addOrder=1,
     searchArtcle,
@@ -11,5 +15,5 @@ enum Menu{
     searchInvoice
 };
 
-
-
+std::string toString(Menu);
+void printMenu2(std::vector<Menu>);

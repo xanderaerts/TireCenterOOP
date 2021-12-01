@@ -1,5 +1,5 @@
 #include <iostream>
-#include "invoice.h"
+#include "include/invoice.h"
 
 Customer Invoice::getCustomer(){
     return customer;
@@ -23,14 +23,16 @@ void Invoice::setArticles(std::vector<Article> inputArticles){
 void Invoice::setPrice(float inputPrice){
     price = inputPrice;
 }
-void Invoice::setDiscount(int inputDiscount{
+void Invoice::setDiscount(int inputDiscount){
     discount = inputDiscount;
 }
 
 float Invoice::calculateDiscount(){
     //
+    return 0;
 }
 
 float Invoice::calculatePrice(){
     //
+    return 0;
 }

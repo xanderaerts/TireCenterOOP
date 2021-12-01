@@ -1,12 +1,9 @@
-#include "menu.h"
+#include "include/menu.h"
 #include <string>
 #include <vector>
 #include <iostream>
+
 Menu menu;
-
-
-std::string toString(Menu);
-void printMenu2(std::vector<Menu>);
 
 
 std::string toString(Menu m){

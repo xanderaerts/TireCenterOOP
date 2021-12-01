@@ -1,4 +1,4 @@
-#include <customer.h>
+#include "include/customer.h"
 
 std::string Customer::getName(){
     return name;
@@ -10,12 +10,12 @@ char Customer::getType(){
     return type;
 }
 
-std::string Customer::setName(std::string inputName){
+void Customer::setName(std::string inputName){
     name = inputName;
 }
-std::string Customer::setAddress(std::string inputAddress){
+void Customer::setAddress(std::string inputAddress){
     address = inputAddress;
 }
-char Customer::setType(char inputType){
+void Customer::setType(char inputType){
     type = inputType;
 }

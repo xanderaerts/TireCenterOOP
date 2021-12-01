@@ -10,6 +10,8 @@ class User{
         User(){
             password = "admin";
         }
+        ~User();
+
         std::string getUsername();
         std::string getPassword();
         std::string getRole();

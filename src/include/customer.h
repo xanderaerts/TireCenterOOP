@@ -8,12 +8,13 @@ class Customer{
         char type;
     public:
         Customer();
-        ~Customer();
+        virtual ~Customer() = default;
+
         std::string getName();
         std::string getAddress();
         char getType();
     
-        std::string setName(std::string inputName);
-        std::string setAddress(std::string inputAddress);
-        char setType(char inputType);
+        void setName(std::string inputName);
+        void setAddress(std::string inputAddress);
+        void setType(char inputType);
 };

@@ -2,9 +2,8 @@
 #include <stdlib.h>
 #include <string>
 #include <vector>
-#include "user.h"
-#include "user.cpp"
-#include "menu.cpp"
+#include "include/user.h"
+#include "include/menu.h"
 
 
 void Login();
@@ -27,6 +26,7 @@ int main(){
         std::cout << "\t3.Logout" << std::endl;
         std::cout << "Maak een keuze: ";
         std::cin >> choice;
+        std::cout << choice << std::endl;
         
         switch(choice){
             case 1:
@@ -41,7 +41,7 @@ int main(){
                 logged = 1;
                 break;
             case 3:
-                std::cout << "Tot ziens!";
+                std::cout << "Tot ziens!" << std::endl;
                 logged = 0;
                 break;
             default:
@@ -54,9 +54,8 @@ int main(){
 }
 
 void Login(){
-
-    int attemps;
-    std::string inputPass,inputUsername;
+    int attemps=0;
+    std::string inputPass="",inputUsername;
 
     if(user.getRole() == "admin"){
 
@@ -100,8 +99,7 @@ void Login(){
 }
 
 void printMenu(){
-    int choice=-1,choice2;
-    bool validChoice=false;
+    int choice=-1;
 
     std::cout << "\n\n";
     std::cout << "Welkom " << user.getUsername() << std::endl;

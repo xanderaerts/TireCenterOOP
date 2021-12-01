@@ -1,5 +1,5 @@
 #include <string>
-#include "article.h"
+#include "include/article.h"
 
 std::string Article::getName(){
     return name;
@@ -20,21 +20,18 @@ char Article::getType(){
     return type;
 }
 
-std::string Article::setName(std::string inputName){
+void Article::setName(std::string inputName){
     name = inputName;
 }
-std::string Article::setName(std::string inputManufacturer){
-    manufacturer = inputManufacturer;
-}
-int Article::setStock(int inputStock){
+void Article::setStock(int inputStock){
     stock = inputStock;
 }
-int Article::setDiameter(int inputDiameter){
+void Article::setDiameter(int inputDiameter){
     diameter = inputDiameter;
 }
-float Article::setPrice(float inputPrice){
+void Article::setPrice(float inputPrice){
     price = inputPrice;
 }
-char Article::setType(char inputType){
+void Article::setType(char inputType){
     type = inputType;
 }

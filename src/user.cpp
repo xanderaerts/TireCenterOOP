@@ -1,5 +1,5 @@
 #include <string>
-#include "user.h"
+#include "include/user.h"
 
 std::string User::getUsername(){
     return username;
@@ -23,4 +23,8 @@ void User::setPassword(std::string inputPassword){
 
 void User::setRole(std::string inputRole){
     role = inputRole;
+}
+
+User::~User(){
+
 }
