@@ -4,10 +4,12 @@
 #include <vector>
 #include "include/user.h"
 #include "include/menu.h"
+#include "include/tireCenter.h"
+#include "include/tire.h"
 
 
-void Login();
-void printMenu();
+void authenticateUser();
+void printMenuUseCase();
 
 User user;
 
@@ -15,9 +17,17 @@ int main(){
     int choice = 0;
     int logged = 0;
 
+
+   TireCenter tirecenter;
+
+    std::vector<Article*> articles;
+    articles.push_back(new Tire("test","test",100,10,20,'t',20,10,"FWAGEG",'w'));
+    tirecenter.setArticle(articles);
+
+    
     do{
         if(logged == 1){
-            printMenu();
+            printMenuUseCase();
         }
         
         std::cout << "-----Login-----" << std::endl;
@@ -32,12 +42,12 @@ int main(){
             case 1:
                 /*naar file schrijven welke activce user is ofzo iets we vinden wel iets*/
                 user.setRole("admin");
-                Login();
+                authenticateUser();
                 logged = 1;
                 break;
             case 2:
                 user.setRole("worker");
-                Login();
+                authenticateUser();
                 logged = 1;
                 break;
             case 3:
@@ -53,110 +63,88 @@ int main(){
     return 0;
 }
 
-void Login(){
+void authenticateUser(){
     int attemps=0;
     std::string inputPass="",inputUsername;
 
-    if(user.getRole() == "admin"){
+    while(attemps < 4 && inputPass != user.getPassword()){
+        std::cout << "Username: ";
+        std::cin >> inputUsername;
+        std::cout << "Passwoord: ";
+        std::cin >> inputPass;
+        attemps++;
+        std::cout << "Het passwoord was niet correct." << std::endl;
 
-        while(attemps < 4 && inputPass != user.getPassword()){
-            std::cout << "Username: ";
-            std::cin >> inputUsername;
-            std::cout << "Passwoord: ";
-            std::cin >> inputPass;
-            attemps++;
-
-            if(inputPass == user.getPassword()){
-                user.setUsername(inputUsername);
-                printMenu();
-            }
-            else if(attemps > 3){
-                std::cout << "Toegang geweigerd, te veel pogingen!" << std:: endl;
-                exit(-1);
-            }
+        if(inputPass == user.getPassword()){
+            user.setUsername(inputUsername);
+            printMenuUseCase();
         }
-    }
-
-    if(user.getRole() == "worker"){
-
-        while(attemps < 4 && inputPass != user.getPassword()){
-            std::cout << "Username: ";
-            std::cin >> inputUsername;
-            std::cout << "Passwoord: ";
-            std::cin >> inputPass;
-            attemps++;
-
-            if(inputPass == user.getPassword()){
-                user.setUsername(inputUsername);
-                printMenu();
-            }
-            else if(attemps > 3){
-                std::cout << "Acces denied" << std:: endl;
-                exit(-1);
-            }
+        else if(attemps > 3){
+            std::cout << "Toegang geweigerd, te veel pogingen!" << std:: endl;
+            exit(-1);
         }
     }    
 }
 
-void printMenu(){
-    int choice=-1;
+void printMenuUseCase(){
+    int choiceUseCaseGroup=-1;
 
     std::cout << "\n\n";
     std::cout << "Welkom " << user.getUsername() << std::endl;
     std::cout << "--------------" << std::endl;
     
-    while(choice<0 || choice > 4){
+    while(choiceUseCaseGroup<0 || choiceUseCaseGroup > 4){
 
         std::cout << "\t1.Bestellingen" << std::endl;    
         std::cout << "\t2.Artikels (zoeken/voorraad)" << std::endl;
         std::cout << "\t3.Klantenbeheer" << std::endl;
         std::cout << "\t4.Facturatie" << std::endl;
         std::cout << "Maak een keuze: ";
-        std::cin >> choice;
+        std::cin >> choiceUseCaseGroup;
 
-        switch(choice){
+        switch(choiceUseCaseGroup){
             case 1:
                 if(user.getRole() == "admin"){
-                    std::vector<Menu> list{addOrder};
-                    //std::vector<Menu> list{addOrder};
-                    printMenu2(list);
+                    std::vector<Menu> UseCaseFunctions{addOrder};
+                    //std::vector<Menu> UseCaseFunctions{addOrder};
+                    printMenuUseCaseDetails(UseCaseFunctions);
                 }
                 else if(user.getRole() == "worker"){
-                    std::vector<Menu> list{addOrder};
-                    printMenu2(list);
+                    std::vector<Menu> UseCaseFunctions{addOrder};
+                    printMenuUseCaseDetails(UseCaseFunctions);
                 }
                 break;
             
             case 2:
                 if(user.getRole() == "admin"){
-                    std::vector<Menu> list{searchArtcle,addArticle,rmArticle,editArticle};
-                    printMenu2(list);
+                    std::vector<Menu> UseCaseFunctions{searchArtcle,addArticle,rmArticle,editArticle};
+                    printMenuUseCaseDetails(UseCaseFunctions);
                 }
                 else if(user.getRole() == "worker"){
-                    std::vector<Menu> list{searchArtcle,editArticle};
-                    printMenu2(list);
+                    std::vector<Menu> UseCaseFunctions{searchArtcle,editArticle};
+                    printMenuUseCaseDetails(UseCaseFunctions);
                 }    
                 break;
             
             case 3:
                 if(user.getRole() == "admin"){
-                    std::vector<Menu> list{addCust,searchCust,editCust};
-                    printMenu2(list);
+                    std::vector<Menu> UseCaseFunctions{addCust,searchCust,editCust};
+                    printMenuUseCaseDetails(UseCaseFunctions);
                 }
                 else if(user.getRole() == "worker"){
-                    std::vector<Menu> list{addCust,searchCust};
-                    printMenu2(list);
+                    std::vector<Menu> UseCaseFunctions{addCust,searchCust};
+                    printMenuUseCaseDetails(UseCaseFunctions);
                 }
                 break;
             
             case 4:
                 if(user.getRole() == "admin"){
-                    std::vector<Menu> list{addInvoice,searchInvoice};
-                    printMenu2(list);
+                    std::vector<Menu> UseCaseFunctions{addInvoice,searchInvoice};
+                    printMenuUseCaseDetails(UseCaseFunctions);
                 }
                 else if(user.getRole() == "worker"){
-                    std::vector<Menu> list{searchInvoice,addInvoice};
-                    printMenu2(list);
+                    std::vector<Menu> UseCaseFunctions{searchInvoice,addInvoice};
+                    printMenuUseCaseDetails(UseCaseFunctions);
                 }
                 break;
             default:

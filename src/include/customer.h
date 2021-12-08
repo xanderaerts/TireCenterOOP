@@ -1,7 +1,8 @@
 #pragma once
 #include <string>
 
-class Customer{
+class Customer
+{
     private:
         std::string name;
         std::string address;

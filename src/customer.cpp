@@ -1,5 +1,9 @@
 #include "include/customer.h"
 
+
+Customer::Customer(){}
+
+
 std::string Customer::getName(){
     return name;
 }

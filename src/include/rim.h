@@ -12,8 +12,11 @@ class Rim:
         int width;
     public:
 
-        Rim();
-        ~Rim();
+        Rim(std::string name, std::string manufacturer,
+            int stock, int diameter, float price, char type,
+            //Rim specific
+            int width, bool aluminium, std::string color);
+        virtual ~Rim() = default;
 
         bool getAluminium();
         void setAluminium(bool);
@@ -24,4 +27,5 @@ class Rim:
         int getWidth();
         void setWidth(int);
 
+        virtual char getType();
 };

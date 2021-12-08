@@ -1,22 +1,28 @@
 #pragma once
 #include <string>
-class Article{
+
+
+class Article
+{
     private:
         std::string name;
         std:: string manufacturer;
         int stock;
         int diameter;
         float price;
+    protected:
         char type;
     public:
-        Article();
+        Article(std::string name, std::string manufacturer,
+        int stock, int diameter, float price, char type);
         virtual ~Article() = default;
+        
         std::string getName();
         std::string getManufacturer();
         int getStock();
         int getDiamter();
         float getPrice();
-        char getType();
+        virtual char getType() =  0;
 
         void setName(std::string inputName);
         void setManufacturer(std::string inputManufacturer);
@@ -24,4 +30,6 @@ class Article{
         void setDiameter(int inputDiameter);
         void setPrice(float inputPrice);
         void setType(char inputType);
+
+
 };

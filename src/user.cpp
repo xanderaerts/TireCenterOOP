@@ -25,6 +25,12 @@ void User::setRole(std::string inputRole){
     role = inputRole;
 }
 
+
+User::User(){
+    password = "admin";
+}
+
+
 User::~User(){
 
 }

@@ -1,0 +1,47 @@
+Date : 2021-12-01 14:20:27
+Directory : c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021
+Total : 20 files,  651 codes, 20 comments, 134 blanks, all 805 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| C++      |         19 |        598 |          4 |        116 |        718 |
+| Makefile |          1 |         53 |         16 |         18 |         87 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                      | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                         |         20 |        651 |         20 |        134 |        805 |
+| src                                                                                       |         19 |        598 |          4 |        116 |        718 |
+| src\include                                                                               |          9 |        187 |          0 |         45 |        232 |
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                  | language | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\Makefile                 | Makefile |         53 |         16 |         18 |         87 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\article.cpp          | C++      |         35 |          0 |          3 |         38 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\company.cpp          | C++      |         14 |          0 |          3 |         17 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\customer.cpp         | C++      |         19 |          0 |          3 |         22 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\include\article.h    | C++      |         26 |          0 |          1 |         27 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\include\company.h    | C++      |         17 |          0 |          5 |         22 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\include\customer.h   | C++      |         17 |          0 |          3 |         20 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\include\invoice.h    | C++      |         24 |          0 |         15 |         39 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\include\menu.h       | C++      |         17 |          0 |          3 |         20 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\include\rim.h        | C++      |         20 |          0 |          7 |         27 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\include\tire.h       | C++      |         23 |          0 |          6 |         29 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\include\tireCenter.h | C++      |         23 |          0 |          2 |         25 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\include\user.h       | C++      |         20 |          0 |          3 |         23 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\invoice.cpp          | C++      |         32 |          2 |          4 |         38 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\main.cpp             | C++      |        142 |          2 |         23 |        167 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\menu.cpp             | C++      |         73 |          0 |         15 |         88 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\rim.cpp              | C++      |         21 |          0 |          4 |         25 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\tire.cpp             | C++      |         26 |          0 |          4 |         30 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\tireCenter.cpp       | C++      |         27 |          0 |          4 |         31 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\user.cpp             | C++      |         22 |          0 |          8 |         30 |
+| Total                                                                                     |          |        651 |         20 |        134 |        805 |
++-------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

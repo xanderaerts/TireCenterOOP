@@ -2,29 +2,35 @@
 #include <string>
 #include "include/tireCenter.h"
 
-std::string tireCenter::getName(){
+
+
+TireCenter::TireCenter(){}
+
+TireCenter::~TireCenter(){}
+
+std::string TireCenter::getName(){
     return name;
 }
-std::string tireCenter::getAddress(){
+std::string TireCenter::getAddress(){
     return address;
 }
-std::vector<Article> tireCenter::getArticle(){
+std::vector<Article*>& TireCenter::getArticle(){
     return articles;
 }
-std::vector<Customer> tireCenter::getCustomer(){
+std::vector<Customer*>& TireCenter::getCustomer(){
     return customers;
 }
 
-void tireCenter::setName(std::string inputName){
+void TireCenter::setName(std::string inputName){
     name = inputName;
 }
-void tireCenter::setAddress(std::string inputAdress){
+void TireCenter::setAddress(std::string inputAdress){
     address = inputAdress;
 }
-void tireCenter::setArticle(std::vector<Article> inputArticle){
+void TireCenter::setArticle(std::vector<Article*> inputArticle){
     articles = inputArticle;
     
 }
-void tireCenter::setCustomer(std::vector<Customer> inputCustomer){
+void TireCenter::setCustomer(std::vector<Customer*> inputCustomer){
     customers = inputCustomer;
 }

@@ -9,11 +9,14 @@ class Tire :
     private:
         int width;
         int height;
-        std::string speedindex;
+        std::string speedIndex;
         char season;
+
     public:
-        Tire();
-        ~Tire();
+        Tire(std::string name, std::string manufacturer,
+        int stock, int diameter, float price, char type,
+        int width, int height, std::string speedIndex, char season);
+        virtual ~Tire()= default;
         
         int getWidth();
         void setWidth(int);
@@ -26,4 +29,6 @@ class Tire :
 
         char getSeason();
         void setSeason(char);
+
+        virtual char getType();
 };

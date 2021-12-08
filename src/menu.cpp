@@ -3,11 +3,14 @@
 #include <vector>
 #include <iostream>
 
+#include "include/article.h"
+
+
 Menu menu;
 
 
-std::string toString(Menu m){
-    switch(m){
+std::string useCaseToString(Menu inputUseCase){
+    switch(inputUseCase){
         case addOrder:
             return "Bestelling toevoegen";
         case searchArtcle:
@@ -33,7 +36,7 @@ std::string toString(Menu m){
 }
 
 
-void printMenu2(std::vector<Menu>list){
+void printMenuUseCaseDetails(std::vector<Menu>UseCaseFunctions){
 
     std::string option,test;
     int choice=1,lineNr{1};
@@ -43,8 +46,8 @@ void printMenu2(std::vector<Menu>list){
     std::cout << "Artikels: " << std::endl;
 
     while(!exit){
-        for(Menu i : list){
-            option = toString(i);
+        for(Menu i : UseCaseFunctions){
+            option = useCaseToString(i);
             std::cout << "\t" << lineNr<< ": " << option << std::endl;
             lineNr++;        
         }
@@ -53,7 +56,7 @@ void printMenu2(std::vector<Menu>list){
         std::cin >> choice;
         lineNr = 1;
 
-        Menu useCaseChoice = list[choice-1];
+        Menu useCaseChoice = UseCaseFunctions[choice-1];
     
         switch(useCaseChoice){
             case addOrder:
@@ -76,12 +79,11 @@ void printMenu2(std::vector<Menu>list){
                 std::cout << "addinv";break;
             case searchInvoice:
                 std::cout << "searchInvoic";break;
+            case showStock:
+                std::cout<< "show stock";break; 
             default:
                 std::cout << "\n\nMaak een geldige keuze!" << std::endl;
                 continue;
         }
-
     }
-
-    
 }

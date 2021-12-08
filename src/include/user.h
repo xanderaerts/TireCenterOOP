@@ -7,9 +7,7 @@ class User{
         std::string password;
         std::string role;
     public:
-        User(){
-            password = "admin";
-        }
+        User();
         ~User();
 
         std::string getUsername();

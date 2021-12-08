@@ -1,10 +1,16 @@
 #include <iostream>
 #include "include/invoice.h"
 
+
+Invoice::Invoice(){}
+Invoice::~Invoice(){}
+
+
+
 Customer Invoice::getCustomer(){
     return customer;
 }
-std::vector<Article> Invoice::getArticles(){
+std::vector<Article*> Invoice::getArticles(){
     return articles;
 }
 float Invoice::getPrice(){
@@ -17,7 +23,7 @@ int Invoice::getDiscount(){
 void Invoice::setCustomer(Customer inputCustomer){
     customer = inputCustomer;
 }
-void Invoice::setArticles(std::vector<Article> inputArticles){
+void Invoice::setArticles(std::vector<Article*> inputArticles){
     articles = inputArticles;
 }
 void Invoice::setPrice(float inputPrice){

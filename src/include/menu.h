@@ -12,8 +12,9 @@ enum Menu{
     searchCust,
     editCust,
     addInvoice,
-    searchInvoice
+    searchInvoice,
+    showStock
 };
 
-std::string toString(Menu);
-void printMenu2(std::vector<Menu>);
+std::string UseCaseToString(Menu);
+void printMenuUseCaseDetails(std::vector<Menu>);

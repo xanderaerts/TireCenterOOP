@@ -2,6 +2,10 @@
 
 #include "include/company.h"
 
+
+Company::Company(){}
+Company::~Company(){}
+
 std::string Company::getVATNr(){
     return VATNr;
 }

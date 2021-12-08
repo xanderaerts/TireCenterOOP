@@ -1,6 +1,17 @@
 #include <string>
 #include "include/tire.h"
 
+
+Tire::Tire(std::string name, std::string manufacturer,
+        int stock, int diameter, float price, char type,
+        //Tire specific
+        int width, int height, std::string speedIndex, char season)
+        
+    : Article(name, manufacturer, stock, diameter, price, type),
+    width(width), height(height), speedIndex(speedIndex), season(season)
+{
+}
+
 int Tire::getWidth(){
     return width;
 }
@@ -16,10 +27,10 @@ void Tire::setHeight(int inputHeight){
 }
 
 std::string Tire::getSpeedIndex(){
-    return speedindex;
+    return speedIndex;
 }
 void Tire::setSpeedIndex(std::string inputSpeedIndex){
-    speedindex = inputSpeedIndex;
+    speedIndex = inputSpeedIndex;
 }
 
 char Tire::getSeason(){
@@ -27,4 +38,8 @@ char Tire::getSeason(){
 }
 void Tire::setSeason(char inputSeason){
     season = inputSeason;
+}
+
+char Tire::getType(){
+    return type;
 }
