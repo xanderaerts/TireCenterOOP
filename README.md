@@ -1,7 +1,7 @@
-# eindProject1Oop2021
+# TireCenter
 
 # My first C++ project
-Its all about a tirecenter. 
+CLI TireCenter software!
 
 
 
