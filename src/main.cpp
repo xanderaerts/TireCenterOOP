@@ -25,7 +25,7 @@ int main(){
     articles.push_back(new Tire("test","test",100,10,20,'t',20,10,"FWAGEG",'w'));
     articles.push_back(new Tire("test1","test",100,10,20,'t',20,10,"FWAGEG",'w'));
     articles.push_back(new Tire("test2","test",100,10,20,'t',20,10,"FWAGEG",'w'));
-    tirecenter.setArticle(articles);
+    tirecenter.setArticles(articles);
 
 
     do{

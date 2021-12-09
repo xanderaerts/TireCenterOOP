@@ -3,6 +3,8 @@
 #include <string>
 #include "tireCenter.h"
 #include "article.h"
+#include "tire.h"
+#include "rim.h"
 
 std::vector<std::string> askNewArticleData();//asks the data that is the same for both articles
 std::vector<std::string> askNewTireData();

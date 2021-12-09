@@ -41,7 +41,7 @@ void printMenuUseCaseDetails(std::vector<Menu>UseCaseFunctions,TireCenter &tirec
     bool exit = false;
 
     std::cout << "\n\n";
-    std::cout << "Artikels: " << std::endl;
+    //TODO fixing title
 
     while(!exit){
         for(Menu i : UseCaseFunctions){

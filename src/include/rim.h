@@ -15,7 +15,7 @@ class Rim:
         Rim(std::string name, std::string manufacturer,
             int stock, int diameter, float price, char type,
             //Rim specific
-            int width, bool aluminium, std::string color);
+            bool aluminium, std::string color,int width);
         virtual ~Rim() = default;
 
         bool getAluminium();

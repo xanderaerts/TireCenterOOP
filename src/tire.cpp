@@ -4,7 +4,6 @@
 
 Tire::Tire(std::string name, std::string manufacturer,
         int stock, int diameter, float price, char type,
-        //Tire specific
         int width, int height, std::string speedIndex, char season)
         
     : Article(name, manufacturer, stock, diameter, price, type),

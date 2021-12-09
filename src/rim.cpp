@@ -1,21 +1,17 @@
 #include <iostream>
 #include <string>
 #include "include/rim.h"
-#include "include/article.h"
+//#include "include/article.h"
 
 
 Rim::Rim(std::string name, std::string manufacturer,
         int stock, int diameter, float price, char type,
-        int width, bool aluminium, std::string color)
-    : Article(name, manufacturer, stock, diameter, price, type),
-    width(width), aluminium(aluminium), color(color)
+         bool aluminium, std::string color,int width)
+    : Article (name, manufacturer, stock, diameter, price, type),
+     aluminium(aluminium), color(color),width(width)
 {
     
 }
-
-//Rim::~Rim(){}
-
-//test
 
 bool Rim::getAluminium(){
     return aluminium;

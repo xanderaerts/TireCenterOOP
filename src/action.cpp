@@ -9,11 +9,7 @@ std::vector<std::string> askNewArticleData(){
 
     std::cout << "Geef de volgende gegevens van het artikel in: " << std::endl;
     
-    for(int i=0;i<5;i++){        
-        std::cout << articleDataMembers[i] << ": ";
-        std::cin >> input;
-        articleData.push_back(input);
-    }
+
 
     return articleData;
 }
@@ -25,11 +21,7 @@ std::vector<std::string> askNewTireData(){
 
     std::cout << "Geef de volgende gegevens van de band in: " << std::endl;
     
-    for(int i=0;i<4;i++){        
-        std::cout << articleDataMembers[i] << ": ";
-        std::cin >> input;
-        TireData.push_back(input);
-    }
+    
 
     return TireData;
 }
@@ -52,21 +44,59 @@ std::vector<std::string> askNewRimData(){
 
 void add_Article(TireCenter &tirecenter){
     char type;
-    std::vector<std::string> ArticleData,TireData,RimData;
+    std::string name,manufacturer;
+    int stock,diameter;
+    float price;
+    std::vector<Article*> Articles;
 
-    do{
-    std::cout << "Welk type of articel wil je toevoegen? (t/r)" << std::endl;
+    std::cout << "Geef de volgende gegeven van het nieuwe artikel in: ";
+    std::cout << "naam: ";
+    std::cin.ignore();
+    getline(std::cin,name);
+    std::cout << "Manufacturer: ";
+    std::cin >> manufacturer;
+    std::cout << "Stock: ";
+    std::cin >> stock;
+    std::cout << "Diameter: ";
+    std::cin >> diameter;
+    std::cout << "Price: ";
+    std::cin >> price;
+    std::cout << "Type";
     std::cin >> type;
-    }while(type != 'r' && type != 't');
 
     if(type == 't'){
-        ArticleData = askNewArticleData();
-        TireData = askNewTireData();
+        int width,height;
+        std::string speedindex;
+        char season;
+
+        std::cout << "width: ";
+        std::cin >> width;
+        std::cout << "height: ";
+        std::cin >> height;
+        std::cout << "Speedindex: ";
+        std::cin >> speedindex;
+        std::cout << "season ";
+        std::cin >> season;
+        
+        Articles = tirecenter.getArticles();
+        Articles.push_back(new Tire(name,manufacturer,stock,diameter,price,type,width,height,speedindex,season));
+        tirecenter.setArticles(Articles);
     }
     else if(type == 'r'){
-        ArticleData = askNewArticleData();
-        RimData = askNewRimData();
-        curArticles = tirecenter.getArticles();
+        bool aluminium;
+        std::string color;
+        int width;
+
+        std::cout << "Aluminium? (1=true,0=false): ";
+        std::cin >> aluminium;
+        std::cout << "Color: ";
+        std::cin >> color;
+        std::cout << "width: ";
+        std::cin >> width;
+        
+        Articles = tirecenter.getArticles();
+        Articles.push_back(new Rim(name,manufacturer,stock,diameter,price,type,aluminium,color,width));
+        tirecenter.setArticles(Articles);
     }
 }
 

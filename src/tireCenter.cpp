@@ -14,10 +14,10 @@ std::string TireCenter::getName(){
 std::string TireCenter::getAddress(){
     return address;
 }
-std::vector<Article*>& TireCenter::getArticle(){s
+std::vector<Article*> TireCenter::getArticles(){
     return articles;
 }
-std::vector<Customer*>& TireCenter::getCustomer(){
+std::vector<Customer*> TireCenter::getCustomer(){
     return customers;
 }
 
