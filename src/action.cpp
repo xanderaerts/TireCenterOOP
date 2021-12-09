@@ -67,21 +67,6 @@ void add_Article(TireCenter &tirecenter){
         ArticleData = askNewArticleData();
         RimData = askNewRimData();
         curArticles = tirecenter.getArticles();
-        
-        std::string name = ArticleData[0];
-        std::string manufacturer = ArticleData[1];
-        int stock = int(ArticleData[2]);
-        int diameter = int(ArticleData[3]);
-        float price = float(ArticleData)
-
-
-
-
-
-
-
-
-
     }
 }
 
