@@ -3,8 +3,6 @@
 #include <vector>
 #include <iostream>
 
-#include "include/article.h"
-
 
 Menu menu;
 
@@ -36,7 +34,7 @@ std::string useCaseToString(Menu inputUseCase){
 }
 
 
-void printMenuUseCaseDetails(std::vector<Menu>UseCaseFunctions){
+void printMenuUseCaseDetails(std::vector<Menu>UseCaseFunctions,TireCenter &tirecenter){
 
     std::string option,test;
     int choice=1,lineNr{1};
@@ -55,16 +53,18 @@ void printMenuUseCaseDetails(std::vector<Menu>UseCaseFunctions){
         std::cout << "Maak een keuze: ";
         std::cin >> choice;
         lineNr = 1;
-
         Menu useCaseChoice = UseCaseFunctions[choice-1];
     
         switch(useCaseChoice){
             case addOrder:
-                std::cout << "addorder";break;
+                std::cout << "addorder";
+                break;
             case searchArtcle:
                 std::cout <<  "searchARt";break;
             case addArticle:
-                std::cout << "addArticle";break;
+                std::cout << "addArticle";
+                add_Article(tirecenter);
+                break;
             case rmArticle:
                 std::cout << "rmArticle";break;
             case editArticle:

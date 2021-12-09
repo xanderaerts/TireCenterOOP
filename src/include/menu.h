@@ -1,6 +1,8 @@
 #pragma once
 #include <vector>
 #include <string>
+#include "article.h"
+#include "actions.h"
 
 enum Menu{
     addOrder=1,
@@ -17,4 +19,4 @@ enum Menu{
 };
 
 std::string UseCaseToString(Menu);
-void printMenuUseCaseDetails(std::vector<Menu>);
+void printMenuUseCaseDetails(std::vector<Menu>,TireCenter &tirecenter);

@@ -12,19 +12,22 @@ void authenticateUser();
 void printMenuUseCase();
 
 User user;
+TireCenter tirecenter;
 
 int main(){
     int choice = 0;
     int logged = 0;
 
 
-   TireCenter tirecenter;
+  
 
     std::vector<Article*> articles;
     articles.push_back(new Tire("test","test",100,10,20,'t',20,10,"FWAGEG",'w'));
+    articles.push_back(new Tire("test1","test",100,10,20,'t',20,10,"FWAGEG",'w'));
+    articles.push_back(new Tire("test2","test",100,10,20,'t',20,10,"FWAGEG",'w'));
     tirecenter.setArticle(articles);
 
-    
+
     do{
         if(logged == 1){
             printMenuUseCase();
@@ -107,44 +110,44 @@ void printMenuUseCase(){
                 if(user.getRole() == "admin"){
                     std::vector<Menu> UseCaseFunctions{addOrder};
                     //std::vector<Menu> UseCaseFunctions{addOrder};
-                    printMenuUseCaseDetails(UseCaseFunctions);
+                    printMenuUseCaseDetails(UseCaseFunctions,tirecenter);
                 }
                 else if(user.getRole() == "worker"){
                     std::vector<Menu> UseCaseFunctions{addOrder};
-                    printMenuUseCaseDetails(UseCaseFunctions);
+                    printMenuUseCaseDetails(UseCaseFunctions,tirecenter);
                 }
                 break;
             
             case 2:
                 if(user.getRole() == "admin"){
                     std::vector<Menu> UseCaseFunctions{searchArtcle,addArticle,rmArticle,editArticle};
-                    printMenuUseCaseDetails(UseCaseFunctions);
+                    printMenuUseCaseDetails(UseCaseFunctions,tirecenter);
                 }
                 else if(user.getRole() == "worker"){
                     std::vector<Menu> UseCaseFunctions{searchArtcle,editArticle};
-                    printMenuUseCaseDetails(UseCaseFunctions);
+                    printMenuUseCaseDetails(UseCaseFunctions,tirecenter);
                 }    
                 break;
             
             case 3:
                 if(user.getRole() == "admin"){
                     std::vector<Menu> UseCaseFunctions{addCust,searchCust,editCust};
-                    printMenuUseCaseDetails(UseCaseFunctions);
+                    printMenuUseCaseDetails(UseCaseFunctions,tirecenter);
                 }
                 else if(user.getRole() == "worker"){
                     std::vector<Menu> UseCaseFunctions{addCust,searchCust};
-                    printMenuUseCaseDetails(UseCaseFunctions);
+                    printMenuUseCaseDetails(UseCaseFunctions,tirecenter);
                 }
                 break;
             
             case 4:
                 if(user.getRole() == "admin"){
                     std::vector<Menu> UseCaseFunctions{addInvoice,searchInvoice};
-                    printMenuUseCaseDetails(UseCaseFunctions);
+                    printMenuUseCaseDetails(UseCaseFunctions,tirecenter);
                 }
                 else if(user.getRole() == "worker"){
                     std::vector<Menu> UseCaseFunctions{searchInvoice,addInvoice};
-                    printMenuUseCaseDetails(UseCaseFunctions);
+                    printMenuUseCaseDetails(UseCaseFunctions,tirecenter);
                 }
                 break;
             default:

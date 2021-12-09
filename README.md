@@ -1,4 +1,9 @@
 # eindProject1Oop2021
 
-# My first big C++ project
+# My first C++ project
 Its all about a tirecenter. 
+
+
+
+
+

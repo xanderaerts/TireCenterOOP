@@ -1,25 +1,25 @@
 # Summary
 
-Date : 2021-12-01 14:19:27
+Date : 2021-12-09 14:07:28
 
 Directory c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021
 
-Total : 21 files,  762 codes, 20 comments, 163 blanks, all 945 lines
+Total : 23 files,  744 codes, 29 comments, 193 blanks, all 966 lines
 
 [details](details.md)
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| C++ | 20 | 709 | 4 | 145 | 858 |
+| C++ | 21 | 688 | 13 | 168 | 869 |
 | Makefile | 1 | 53 | 16 | 18 | 87 |
+| Markdown | 1 | 3 | 0 | 7 | 10 |
 
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 21 | 762 | 20 | 163 | 945 |
-| extra | 1 | 111 | 0 | 29 | 140 |
-| src | 19 | 598 | 4 | 116 | 718 |
-| src\include | 9 | 187 | 0 | 45 | 232 |
+| . | 23 | 744 | 29 | 193 | 966 |
+| src | 21 | 688 | 13 | 168 | 869 |
+| src\include | 10 | 205 | 2 | 55 | 262 |
 
 [details](details.md)
