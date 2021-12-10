@@ -28,4 +28,6 @@ class Rim:
         void setWidth(int);
 
         virtual char getType();
+
+        virtual void print();
 };

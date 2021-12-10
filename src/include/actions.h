@@ -6,7 +6,9 @@
 #include "tire.h"
 #include "rim.h"
 
-std::vector<std::string> askNewArticleData();//asks the data that is the same for both articles
-std::vector<std::string> askNewTireData();
-std::vector<std::string> askNewRimData();
+
 void add_Article(TireCenter &tirecenter);
+Article* search_Article(TireCenter &tirecenter);
+Article* filterTires(std::vector<Article*> articles);
+Article* filterRims(std::vector<Article*> articles);
+Article* filterSize(std::vector<Article*> articles);

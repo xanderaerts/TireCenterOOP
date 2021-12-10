@@ -17,15 +17,12 @@ TireCenter tirecenter;
 int main(){
     int choice = 0;
     int logged = 0;
-
-
-  
-
+    /*
     std::vector<Article*> articles;
-    articles.push_back(new Tire("test","test",100,10,20,'t',20,10,"FWAGEG",'w'));
+    articles.push_back(new Tire("test","coolemaker",100,10,20,'t',20,10,"FWAGEG",'w'));
     articles.push_back(new Tire("test1","test",100,10,20,'t',20,10,"FWAGEG",'w'));
     articles.push_back(new Tire("test2","test",100,10,20,'t',20,10,"FWAGEG",'w'));
-    tirecenter.setArticles(articles);
+    tirecenter.setArticles(articles);*/
 
 
     do{
@@ -109,7 +106,6 @@ void printMenuUseCase(){
             case 1:
                 if(user.getRole() == "admin"){
                     std::vector<Menu> UseCaseFunctions{addOrder};
-                    //std::vector<Menu> UseCaseFunctions{addOrder};
                     printMenuUseCaseDetails(UseCaseFunctions,tirecenter);
                 }
                 else if(user.getRole() == "worker"){

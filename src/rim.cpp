@@ -38,3 +38,11 @@ void Rim::setWidth(int inputWidth){
 char Rim::getType(){
     return type;
 }
+
+void Rim::print(){
+            Article::printArticle();
+
+            std::cout << "\naluminium: " << getAluminium()
+            << "color: " << getColor()
+            << "width: " << getWidth() << std::endl;
+}

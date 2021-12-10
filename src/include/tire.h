@@ -31,4 +31,6 @@ class Tire :
         void setSeason(char);
 
         virtual char getType();
+
+        virtual void print();
 };

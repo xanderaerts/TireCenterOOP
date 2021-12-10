@@ -20,7 +20,7 @@ class Article
         std::string getName();
         std::string getManufacturer();
         int getStock();
-        int getDiamter();
+        int getDiameter();
         float getPrice();
         virtual char getType() =  0;
 
@@ -30,6 +30,7 @@ class Article
         void setDiameter(int inputDiameter);
         void setPrice(float inputPrice);
         void setType(char inputType);
-
+        void printArticle();
+        virtual void print() = 0;
 
 };

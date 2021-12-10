@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 #include "include/tire.h"
 
 
@@ -41,4 +42,13 @@ void Tire::setSeason(char inputSeason){
 
 char Tire::getType(){
     return type;
+}
+
+    void Tire::print(){
+            Article::printArticle();
+
+            std::cout << "\nwidth: " << getWidth()
+            << "\nHeight: " << getHeight()
+            << "\nSpeedindex: " << getSpeedIndex()
+            << "\nseason: " << getSeason() << std::endl;;
 }

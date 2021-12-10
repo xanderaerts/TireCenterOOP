@@ -40,17 +40,18 @@ void printMenuUseCaseDetails(std::vector<Menu>UseCaseFunctions,TireCenter &tirec
     int choice=1,lineNr{1};
     bool exit = false;
 
-    std::cout << "\n\n";
+    
     //TODO fixing title
 
     while(!exit){
+        std::cout << "\n\n";
         for(Menu i : UseCaseFunctions){
             option = useCaseToString(i);
-            std::cout << "\t" << lineNr<< ": " << option << std::endl;
+            std::cout /*<< "\t" */ << lineNr<< ": " << option << std::endl;
             lineNr++;        
         }
 
-        std::cout << "Maak een keuze: ";
+        std::cout << "\nMaak een keuze: ";
         std::cin >> choice;
         lineNr = 1;
         Menu useCaseChoice = UseCaseFunctions[choice-1];
@@ -60,9 +61,9 @@ void printMenuUseCaseDetails(std::vector<Menu>UseCaseFunctions,TireCenter &tirec
                 std::cout << "addorder";
                 break;
             case searchArtcle:
-                std::cout <<  "searchARt";break;
+                search_Article(tirecenter);
+                break;
             case addArticle:
-                std::cout << "addArticle";
                 add_Article(tirecenter);
                 break;
             case rmArticle:
@@ -80,7 +81,7 @@ void printMenuUseCaseDetails(std::vector<Menu>UseCaseFunctions,TireCenter &tirec
             case searchInvoice:
                 std::cout << "searchInvoic";break;
             case showStock:
-                std::cout<< "show stock";break; 
+                std::cout<< "show stock";break;
             default:
                 std::cout << "\n\nMaak een geldige keuze!" << std::endl;
                 continue;

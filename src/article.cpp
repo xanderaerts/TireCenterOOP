@@ -1,5 +1,5 @@
-#include <string>
 #include "include/article.h"
+#include <iostream>
 
 Article::Article(std::string name, std::string manufacturer,
     int stock, int diameter, float price, char type)
@@ -19,7 +19,7 @@ std::string Article::getManufacturer(){
 int Article::getStock(){
     return stock;
 }
-int Article::getDiamter(){
+int Article::getDiameter(){
     return diameter;
 }
 float Article::getPrice(){
@@ -47,3 +47,12 @@ void Article::setPrice(float inputPrice){
 void Article::setType(char inputType){
     type = inputType;
 }
+
+void Article::printArticle(){
+    std::cout << "\n" << "Naam: " << getName()
+        << "\nManufacturerer: " << getManufacturer()
+        << "\nStock: " << getStock()
+        << "\nDiameter: " << getDiameter()
+        << "\nPrice: " << getPrice()
+        << "\nType: " << getType();
+    }

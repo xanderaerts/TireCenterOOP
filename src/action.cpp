@@ -2,46 +2,6 @@
 #include <iostream>
 #include "include/actions.h"
 
-std::vector<std::string> askNewArticleData(){
-    std::vector<std::string> articleData;
-    std::string input;
-    std::string articleDataMembers[6] ={"naam","manufacturer","stock","diameter","price"};
-
-    std::cout << "Geef de volgende gegevens van het artikel in: " << std::endl;
-    
-
-
-    return articleData;
-}
-
-std::vector<std::string> askNewTireData(){
-    std::vector<std::string> TireData;
-    std::string input;
-    std::string articleDataMembers[4] ={"width","height","speedindex","season(only one char)"};
-
-    std::cout << "Geef de volgende gegevens van de band in: " << std::endl;
-    
-    
-
-    return TireData;
-}
-
-std::vector<std::string> askNewRimData(){
-    std::vector<std::string> RimData;
-    std::string input;
-    std::string articleDataMembers[3] ={"aluminium","color","width"};
-
-    std::cout << "Geef de volgende gegevens van de velg in: " << std::endl;
-    
-    for(int i=0;i<3;i++){        
-        std::cout << articleDataMembers[i] << ": ";
-        std::cin >> input;
-        RimData.push_back(input);
-    }
-
-    return RimData;
-}
-
 void add_Article(TireCenter &tirecenter){
     char type;
     std::string name,manufacturer;
@@ -61,7 +21,7 @@ void add_Article(TireCenter &tirecenter){
     std::cin >> diameter;
     std::cout << "Price: ";
     std::cin >> price;
-    std::cout << "Type";
+    std::cout << "Type: ";
     std::cin >> type;
 
     if(type == 't'){
@@ -75,7 +35,7 @@ void add_Article(TireCenter &tirecenter){
         std::cin >> height;
         std::cout << "Speedindex: ";
         std::cin >> speedindex;
-        std::cout << "season ";
+        std::cout << "season: ";
         std::cin >> season;
         
         Articles = tirecenter.getArticles();
@@ -100,3 +60,77 @@ void add_Article(TireCenter &tirecenter){
     }
 }
 
+Article* search_Article(TireCenter &tirecenter){
+    int choiceFilter;
+    std::vector<Article*> articles;
+    articles = tirecenter.getArticles();    
+    
+    do{
+    std::cout << "Waarop wilt u filteren: "
+        << "\n\t1.Banden" << "\n\t2.Velgen" << "\n\t3.Groote" << std::endl;
+    std::cin >> choiceFilter;
+    
+    if(choiceFilter < 0 || choiceFilter > 3){
+        std::cout << "Kies een geldige optie [1-3]!" << std::endl;
+    }
+    }while(choiceFilter < 0 || choiceFilter > 3);
+
+    switch (choiceFilter){
+    case 1:
+        filterTires(articles);
+        break;
+    case 2:filterRims(articles);
+        break;
+    case 3:
+        filterSize(articles);
+        break;
+    }
+
+    return 0;
+}
+
+Article* filterTires(std::vector<Article*> articles){
+    int i = 0;  //i is the index of the vector articles where the article is stored
+    for(Article* article : articles){
+            if(article->getType() == 't'){
+            article->print();
+            i++;
+        }
+    }
+    if(i == 0){
+        std::cout << "Er werd geen artikel gevonden. \n";
+    }
+    return 0;
+}
+Article* filterRims(std::vector<Article*> articles){
+    int i = 0;  //i is the index of the vector articles where the article is stored
+    for(Article* article : articles){
+            if(article->getType() == 'r'){
+            article->print();
+            i++;
+        }
+    }
+    if(i == 0){
+        std::cout << "Er werd geen artikel gevonden. \n";
+    }
+    return 0;
+}
+Article* filterSize(std::vector<Article*> articles){
+    int i = 0;  //i is the printcounter, if i = 0 there are no elements printed or found
+    int size;
+
+    std::cout << "Op welke size wil je filteren: ";
+    std::cin >> size;
+
+    for(Article* article : articles){
+            if(article->getDiameter() == size){
+            article->print();
+            i++;
+        }
+    }
+
+    if(i == 0){
+        std::cout << "Er werd geen artikel gevonden. \n";
+    }
+    return 0;
+}
