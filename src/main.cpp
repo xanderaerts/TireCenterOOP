@@ -7,7 +7,6 @@
 #include "include/tireCenter.h"
 #include "include/tire.h"
 
-
 void authenticateUser();
 void printMenuUseCase();
 
@@ -73,7 +72,9 @@ void authenticateUser(){
         std::cout << "Passwoord: ";
         std::cin >> inputPass;
         attemps++;
-        std::cout << "Het passwoord was niet correct." << std::endl;
+        if(inputPass != user.getPassword()){
+            std::cout << "Het passwoord was niet correct." << std::endl;
+        }
 
         if(inputPass == user.getPassword()){
             user.setUsername(inputUsername);

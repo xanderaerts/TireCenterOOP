@@ -91,6 +91,10 @@ Article* search_Article(TireCenter &tirecenter){
 
 Article* filterTires(std::vector<Article*> articles){
     int i = 0;  //i is the index of the vector articles where the article is stored
+
+
+    std::cout << "----------Tires----------"<< std::endl;
+
     for(Article* article : articles){
             if(article->getType() == 't'){
             article->print();
@@ -104,6 +108,9 @@ Article* filterTires(std::vector<Article*> articles){
 }
 Article* filterRims(std::vector<Article*> articles){
     int i = 0;  //i is the index of the vector articles where the article is stored
+    
+    std::cout << "----------Rim----------"<< std::endl;
+
     for(Article* article : articles){
             if(article->getType() == 'r'){
             article->print();
@@ -118,6 +125,8 @@ Article* filterRims(std::vector<Article*> articles){
 Article* filterSize(std::vector<Article*> articles){
     int i = 0;  //i is the printcounter, if i = 0 there are no elements printed or found
     int size;
+
+    std::cout << "----------Tires/Rims----------"<< std::endl;
 
     std::cout << "Op welke size wil je filteren: ";
     std::cin >> size;
