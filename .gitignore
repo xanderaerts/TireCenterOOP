@@ -1,2 +1,4 @@
 todo.md
-extra/
+extra/*
+.vscode/*
+build
