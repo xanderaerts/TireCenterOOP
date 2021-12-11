@@ -6,7 +6,6 @@
 
 Menu menu;
 
-
 std::string useCaseToString(Menu inputUseCase){
     switch(inputUseCase){
         case addOrder:
@@ -61,13 +60,14 @@ void printMenuUseCaseDetails(std::vector<Menu>UseCaseFunctions,TireCenter &tirec
                 std::cout << "addorder";
                 break;
             case searchArtcle:
-                search_Article(tirecenter);
+                search_Article(tirecenter,false);
                 break;
             case addArticle:
                 add_Article(tirecenter);
                 break;
             case rmArticle:
-                std::cout << "rmArticle";break;
+                delete_Articles(tirecenter);
+                break;
             case editArticle:
                 std::cout << "editArticle";break;
             case addCust:

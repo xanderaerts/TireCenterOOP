@@ -60,9 +60,10 @@ void add_Article(TireCenter &tirecenter){
     }
 }
 
-Article* search_Article(TireCenter &tirecenter){
-    int choiceFilter;
+int search_Article(TireCenter &tirecenter,bool unicChoice){
+    int choiceFilter,i=0;
     std::vector<Article*> articles;
+    Article* foundArticle{};
     articles = tirecenter.getArticles();    
     
     do{
@@ -77,69 +78,124 @@ Article* search_Article(TireCenter &tirecenter){
 
     switch (choiceFilter){
     case 1:
-        filterTires(articles);
+        foundArticle = filterTires(articles,unicChoice);
         break;
-    case 2:filterRims(articles);
+    case 2:
+        foundArticle = filterRims(articles,unicChoice);
         break;
     case 3:
-        filterSize(articles);
+        foundArticle = filterSize(articles,unicChoice);
         break;
     }
 
+    if(foundArticle){
+
+    for(Article* a : articles){
+        if(a== foundArticle){
+            return i; 
+        }
+        i++;
+    }}
     return 0;
 }
 
-Article* filterTires(std::vector<Article*> articles){
-    int i = 0;  //i is the index of the vector articles where the article is stored
+Article* filterTires(std::vector<Article*> articles,bool unicChoice){
+    int i=0,choice=0;
+    std::vector<Article*> printedArticles;
 
-
-    std::cout << "----------Tires----------"<< std::endl;
+    std::cout << "\n----------Tires----------\n"<< std::endl;
 
     for(Article* article : articles){
-            if(article->getType() == 't'){
-            article->print();
+        if(article->getType() == 't'){
             i++;
-        }
+            std::cout <<"\n" << i <<": " << std::endl;
+            article->print();
+            printedArticles.push_back(article);
+            }
     }
     if(i == 0){
-        std::cout << "Er werd geen artikel gevonden. \n";
+        std::cout << "\nEr werd geen artikel gevonden. \n";
+        unicChoice = false;
     }
-    return 0;
+    if (unicChoice) {
+        std::cout << "Welk artikel wil je kiezen: ";
+        std::cin >> choice;
+        choice--;
+
+        std::cout << choice;
+        return printedArticles[choice];
+    }
 }
-Article* filterRims(std::vector<Article*> articles){
-    int i = 0;  //i is the index of the vector articles where the article is stored
+
+Article* filterRims(std::vector<Article*> articles,bool unicChoice){
+    int i=0,choice=0;
+
+    std::vector<Article*> printedArticles;
     
-    std::cout << "----------Rim----------"<< std::endl;
-
+    std::cout << "\n----------Rim----------\n"<< std::endl;
     for(Article* article : articles){
-            if(article->getType() == 'r'){
+        if(article->getType() == 'r'){
+            std::cout <<"\n" << i + 1<<": " << std::endl;
             article->print();
+            printedArticles.push_back(article);
             i++;
         }
     }
     if(i == 0){
-        std::cout << "Er werd geen artikel gevonden. \n";
+        std::cout << "\nEr werd geen artikel gevonden. \n";
+        unicChoice = false;
     }
-    return 0;
+
+    if(unicChoice){
+        std::cout << "Welk artikel wil je kiezen: ";
+        std::cin >> choice;
+        choice--;;
+        return printedArticles[choice];
+
+    }
 }
-Article* filterSize(std::vector<Article*> articles){
-    int i = 0;  //i is the printcounter, if i = 0 there are no elements printed or found
+
+Article* filterSize(std::vector<Article*> articles,bool unicChoice){
+    int i=0,choice=0;
     int size;
+    std::vector<Article*> printedArticles;
 
-    std::cout << "----------Tires/Rims----------"<< std::endl;
-
+    std::cout << "\n----------Tires/Rims----------\n"<< std::endl;
     std::cout << "Op welke size wil je filteren: ";
     std::cin >> size;
 
     for(Article* article : articles){
             if(article->getDiameter() == size){
-            article->print();
-            i++;
+                article->print();  
+                printedArticles.push_back(article);
+                i++;
         }
     }
-
     if(i == 0){
-        std::cout << "Er werd geen artikel gevonden. \n";
+        std::cout << "\nEr werd geen artikel gevonden. \n";
+        unicChoice = false;
     }
-    return 0;
+
+    if(unicChoice){
+        std::cout << "\nWelk artikel wil je kiezen: ";
+        std::cin >> choice;
+        choice--;
+        return printedArticles[choice];
+
+    }
 }
+
+void delete_Articles(TireCenter &tirecenter){
+    std::vector<Article*> articles = tirecenter.getArticles();
+    int index = search_Article(tirecenter,true);
+    std::cout << "index : "<< index << std::endl;
+    articles.erase(articles.begin() + (index));
+    tirecenter.setArticles(articles);
+}
+
+
+
+
+
+
+
