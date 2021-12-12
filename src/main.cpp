@@ -16,13 +16,12 @@ TireCenter tirecenter;
 int main(){
     int choice = 0;
     int logged = 0;
-    
+    /*
     std::vector<Article*> articles;
     articles.push_back(new Tire("test","coolemaker",100,10,20,'t',20,10,"FWAGEG",'w'));
     articles.push_back(new Tire("test1","test",100,10,20,'t',20,10,"FWAGEG",'w'));
     articles.push_back(new Tire("test2","test",100,10,20,'t',20,10,"FWAGEG",'w'));
-    articles.push_back(new Tire("test3","test",100,10,20,'t',20,10,"kfdhqk",'w'));
-    tirecenter.setArticles(articles);
+    tirecenter.setArticles(articles);*/
 
 
     do{

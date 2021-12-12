@@ -8,10 +8,7 @@
 
 
 void add_Article(TireCenter &tirecenter);
-
-int search_Article(TireCenter &tirecenter,bool);
-Article* filterTires(std::vector<Article*> articles,bool);
-Article* filterRims(std::vector<Article*> articles,bool);
-Article* filterSize(std::vector<Article*> articles,bool);
-
-void delete_Articles(TireCenter &tirecenter);
+Article* search_Article(TireCenter &tirecenter);
+Article* filterTires(std::vector<Article*> articles);
+Article* filterRims(std::vector<Article*> articles);
+Article* filterSize(std::vector<Article*> articles);
