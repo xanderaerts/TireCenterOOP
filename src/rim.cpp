@@ -43,6 +43,6 @@ void Rim::print(){
             Article::printArticle();
 
             std::cout << "\naluminium: " << getAluminium()
-            << "color: " << getColor()
-            << "width: " << getWidth() << std::endl;
+            << "\ncolor: " << getColor()
+            << "\nwidth: " << getWidth() << std::endl;
 }

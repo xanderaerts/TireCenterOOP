@@ -13,9 +13,7 @@ enum Menu{
     addCust,
     searchCust,
     editCust,
-    addInvoice,
-    searchInvoice,
-    showStock
+    searchInvoice
 };
 
 std::string UseCaseToString(Menu);

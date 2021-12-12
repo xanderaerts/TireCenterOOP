@@ -6,7 +6,6 @@
 
 Menu menu;
 
-
 std::string useCaseToString(Menu inputUseCase){
     switch(inputUseCase){
         case addOrder:
@@ -25,8 +24,6 @@ std::string useCaseToString(Menu inputUseCase){
             return "Klant opvragen";
         case editCust:
             return "Klant bewerken";
-        case addInvoice:
-            return "Nieuw factuur aanmaken";
         case searchInvoice:
             return "Factuur opvragen";
     }
@@ -61,27 +58,25 @@ void printMenuUseCaseDetails(std::vector<Menu>UseCaseFunctions,TireCenter &tirec
                 std::cout << "addorder";
                 break;
             case searchArtcle:
-                search_Article(tirecenter);
+                search_Article(tirecenter,false);
                 break;
             case addArticle:
                 add_Article(tirecenter);
                 break;
             case rmArticle:
-                std::cout << "rmArticle";break;
+                delete_Articles(tirecenter);
+                break;
             case editArticle:
-                std::cout << "editArticle";break;
+                edit_Article(tirecenter);
+                break;
             case addCust:
                 std::cout << "addCust";break;
             case searchCust:
                 std::cout << "searchCust";break;
             case editCust:
                 std::cout << "editCust";break;
-            case addInvoice:
-                std::cout << "addinv";break;
             case searchInvoice:
                 std::cout << "searchInvoic";break;
-            case showStock:
-                std::cout<< "show stock";break;
             default:
                 std::cout << "\n\nMaak een geldige keuze!" << std::endl;
                 continue;
