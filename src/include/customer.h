@@ -8,7 +8,7 @@ class Customer
         std::string address;
         char type;
     public:
-        Customer();
+        Customer(std::string name,std::string address,char type);
         virtual ~Customer() = default;
 
         std::string getName();

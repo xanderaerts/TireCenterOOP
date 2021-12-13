@@ -6,12 +6,14 @@
 #define TIREDATAMEMB 4
 #define RIMDATAMEMB 3
 
+//all fuction's about the articles
 void add_Article(TireCenter &tirecenter){
     char type;
     std::string name,manufacturer;
     int stock,diameter;
     float price;
     std::vector<Article*> Articles;
+    Articles = tirecenter.getArticles();
 
     std::cout << "Geef de volgende gegeven van het nieuwe artikel in: ";
     std::cout << "\nnaam: ";
@@ -43,7 +45,6 @@ void add_Article(TireCenter &tirecenter){
             std::cout << "season: ";
             std::cin >> season;
             
-            Articles = tirecenter.getArticles();
             Articles.push_back(new Tire(name,manufacturer,stock,diameter,price,type,width,height,speedindex,season));
             tirecenter.setArticles(Articles);
         }
@@ -59,7 +60,6 @@ void add_Article(TireCenter &tirecenter){
             std::cout << "width: ";
             std::cin >> width;
             
-            Articles = tirecenter.getArticles();
             Articles.push_back(new Rim(name,manufacturer,stock,diameter,price,type,aluminium,color,width));
             tirecenter.setArticles(Articles);
         }
@@ -325,5 +325,42 @@ void edit_Article(TireCenter &tirecenter){
                 }
             }
         }   
+    }
+}
+
+void add_Customer(TireCenter &tirecenter){
+    std::string name,address,VATNr{};
+    char type;
+    int choiceType,volumeDiscount{};
+
+    std::cout << "Geef de naam van de klant in: "; 
+    std::cin.ignore();
+    getline(std::cin,name);
+    std::cout << "Geef het address van de klant in: ";
+    std::cin.ignore();
+    getline(std::cin,address);
+    std::cout << "Is het een bedrijfsklant?(1=ja,0=nee)";
+    std::cin >> choiceType;
+
+    std::vector<Customer*> customers;
+
+
+
+    switch (choiceType)
+    {
+    case 1:
+        type = 'c';
+        std::cout << "Geef het btw nummer van de klant in: ";
+        std::cin.ignore();
+        getline(std::cin,VATNr);
+        std::cout << "Geef de korting in: ";
+        std::cin >> volumeDiscount;
+        
+        customers.push_back(new Company(name,address,type,VATNr,volumeDiscount));
+
+
+    case 2:
+    default:
+        break;
     }
 }

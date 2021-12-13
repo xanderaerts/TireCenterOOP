@@ -5,6 +5,8 @@
 #include "article.h"
 #include "tire.h"
 #include "rim.h"
+#include "customer.h"
+#include "company.h"
 
 
 void add_Article(TireCenter &tirecenter);
@@ -16,3 +18,6 @@ Article* filterSize(std::vector<Article*> articles,bool);
 
 void delete_Articles(TireCenter &tirecenter);
 void edit_Article(TireCenter &tirecenter);
+
+void add_Customer(TireCenter &tirecenter);
+

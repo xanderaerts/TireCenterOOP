@@ -11,8 +11,8 @@ class Company
 
     public:
 
-    Company();
-    ~Company();
+    Company(std::string name,std::string address,char type,std::string VATNr,int volumeDiscount);
+    virtual ~Company() = default ;
 
     std::string getVATNr();
     void setVATNr(std::string);
