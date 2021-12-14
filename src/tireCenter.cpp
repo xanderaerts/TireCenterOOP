@@ -17,7 +17,7 @@ std::string TireCenter::getAddress(){
 std::vector<Article*> TireCenter::getArticles(){
     return articles;
 }
-std::vector<Customer*> TireCenter::getCustomer(){
+std::vector<Customer*> TireCenter::getCustomers(){
     return customers;
 }
 
@@ -31,7 +31,7 @@ void TireCenter::setArticles(std::vector<Article*> inputArticle){
     articles = inputArticle;
     
 }
-void TireCenter::setCustomer(std::vector<Customer*> inputCustomer){
+void TireCenter::setCustomers(std::vector<Customer*> inputCustomer){
     customers = inputCustomer;
 }
 

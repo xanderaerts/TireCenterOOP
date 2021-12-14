@@ -70,11 +70,14 @@ void printMenuUseCaseDetails(std::vector<Menu>UseCaseFunctions,TireCenter &tirec
                 edit_Article(tirecenter);
                 break;
             case addCust:
-                std::cout << "addCust";break;
+                add_Customer(tirecenter);
+                break;
             case searchCust:
-                std::cout << "searchCust";break;
+                search_Customer(tirecenter);
+                break;
             case editCust:
-                std::cout << "editCust";break;
+                edit_Customer(tirecenter);
+                break;
             case searchInvoice:
                 std::cout << "searchInvoic";break;
             default:

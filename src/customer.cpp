@@ -1,8 +1,12 @@
 #include "include/customer.h"
 
+Customer::Customer(std::string name,std::string address,char type)
+    : name(name),address(address),type(type)
+{
+
+}
 
 Customer::Customer(){}
-
 
 std::string Customer::getName(){
     return name;
@@ -22,4 +26,8 @@ void Customer::setAddress(std::string inputAddress){
 }
 void Customer::setType(char inputType){
     type = inputType;
+}
+
+void Customer::printCustomer(){
+    std::cout << "\nNaam: " << getName() << "\nAdres: " << getAddress() << "\nType: " << getType() << std::endl;
 }

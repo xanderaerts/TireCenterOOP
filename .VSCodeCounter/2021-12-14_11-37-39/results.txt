@@ -1,0 +1,51 @@
+Date : 2021-12-14 11:37:39
+Directory : c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021
+Total : 23 files,  1111 codes, 43 comments, 243 blanks, all 1397 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| C++      |         21 |      1,029 |         27 |        219 |      1,275 |
+| Makefile |          1 |         53 |         16 |         18 |         87 |
+| Markdown |          1 |         29 |          0 |          6 |         35 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                      | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                         |         23 |      1,111 |         43 |        243 |      1,397 |
+| src                                                                                       |         21 |      1,029 |         27 |        219 |      1,275 |
+| src\include                                                                               |         10 |        221 |          4 |         62 |        287 |
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                  | language | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\Makefile                 | Makefile |         53 |         16 |         18 |         87 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\README.md                | Markdown |         29 |          0 |          6 |         35 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\action.cpp           | C++      |        350 |          3 |         58 |        411 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\article.cpp          | C++      |         49 |          3 |          7 |         59 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\company.cpp          | C++      |         19 |          1 |          8 |         28 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\customer.cpp         | C++      |         24 |          0 |          6 |         30 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\include\actions.h    | C++      |         20 |          3 |          7 |         30 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\include\article.h    | C++      |         31 |          0 |          5 |         36 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\include\company.h    | C++      |         17 |          0 |          5 |         22 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\include\customer.h   | C++      |         19 |          0 |          3 |         22 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\include\invoice.h    | C++      |         24 |          0 |         15 |         39 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\include\menu.h       | C++      |         18 |          0 |          3 |         21 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\include\rim.h        | C++      |         24 |          1 |          8 |         33 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\include\tire.h       | C++      |         27 |          0 |          9 |         36 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\include\tireCenter.h | C++      |         23 |          0 |          4 |         27 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\include\user.h       | C++      |         18 |          0 |          3 |         21 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\invoice.cpp          | C++      |         34 |          2 |          8 |         44 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\main.cpp             | C++      |        123 |         12 |         18 |        153 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\menu.cpp             | C++      |         74 |          1 |         12 |         87 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\rim.cpp              | C++      |         37 |          1 |         10 |         48 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\tire.cpp             | C++      |         44 |          0 |         10 |         54 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\tireCenter.cpp       | C++      |         29 |          0 |          9 |         38 |
+| c:\Users\xande\OneDrive\AAE-ICT\2de_jaar\OOP\eindProject1Oop2021\src\user.cpp             | C++      |         25 |          0 |         11 |         36 |
+| Total                                                                                     |          |      1,111 |         43 |        243 |      1,397 |
++-------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

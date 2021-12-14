@@ -100,7 +100,7 @@ int search_Article(TireCenter &tirecenter,bool unicChoice){
 
     if(foundArticle){
 
-    for(Article* a : articles){
+    for(auto a : articles){
         if(a== foundArticle){
             return i; 
         }
@@ -115,7 +115,7 @@ Article* filterTires(std::vector<Article*> articles,bool unicChoice){
 
     std::cout << "\n----------Tires----------\n"<< std::endl;
 
-    for(Article* article : articles){
+    for(auto article : articles){
         if(article->getType() == 't'){
             i++;
             std::cout <<"\n" << i <<": ";
@@ -144,7 +144,7 @@ Article* filterRims(std::vector<Article*> articles,bool unicChoice){
     std::vector<Article*> printedArticles;
     
     std::cout << "\n----------Rim----------\n"<< std::endl;
-    for(Article* article : articles){
+    for(auto article : articles){
         if(article->getType() == 'r'){
             std::cout <<"\n" << i + 1<<": ";
             article->print();
@@ -177,7 +177,7 @@ Article* filterSize(std::vector<Article*> articles,bool unicChoice){
     std::cout << "\nOp welke size (diameter) wil je filteren: ";
     std::cin >> size;
 
-    for(Article* article : articles){
+    for(auto article : articles){
             if(article->getDiameter() == size){
                 std::cout <<"\n" << i + 1<<": ";
                 article->print();  
@@ -204,18 +204,19 @@ Article* filterSize(std::vector<Article*> articles,bool unicChoice){
 void delete_Articles(TireCenter &tirecenter){
     std::vector<Article*> articles = tirecenter.getArticles();
     int index = search_Article(tirecenter,true);
+    Article* article = articles[index];
     articles.erase(articles.begin() + (index));
+    delete article;
     tirecenter.setArticles(articles);
-
 }
 
 void edit_Article(TireCenter &tirecenter){
     std::vector<Article*> articles = tirecenter.getArticles();
     int index = search_Article(tirecenter,true);
-    Article* article = articles[index];
     int choice{};
 
-    if(index >= 0){
+    if(index >= 0 && index < (int)articles.size()){
+        Article* article = articles[index];
         std::cout << "\nWelk item wil je bewerken?\nVeranderen van type is niet mogelijk, verwijder hiervoor het object en maak een nieuw object aan." << std::endl;
         std::string dataMembers[DATAMEMBART-1] = {"naam","manufacturer","voorraad","diameter","prijs"};
         std::string dataMembersTire[4] = {"width","height","speedindex","season"};
@@ -330,37 +331,170 @@ void edit_Article(TireCenter &tirecenter){
 
 void add_Customer(TireCenter &tirecenter){
     std::string name,address,VATNr{};
-    char type;
-    int choiceType,volumeDiscount{};
+    char choiceType;
+    int volumeDiscount{};
 
-    std::cout << "Geef de naam van de klant in: "; 
+    std::cout << "\nGeef de naam van de klant in: "; 
     std::cin.ignore();
     getline(std::cin,name);
-    std::cout << "Geef het address van de klant in: ";
-    std::cin.ignore();
+    std::cout << "Geef het adres van de klant in: ";
+    //std::cin.ignore();
     getline(std::cin,address);
-    std::cout << "Is het een bedrijfsklant?(1=ja,0=nee)";
+    std::cout << "Is het een bedrijfsklant?(c=ja,p=nee)";
     std::cin >> choiceType;
 
     std::vector<Customer*> customers;
-
-
+    tirecenter.getCustomers();
 
     switch (choiceType)
     {
-    case 1:
-        type = 'c';
+    case 'c':
         std::cout << "Geef het btw nummer van de klant in: ";
         std::cin.ignore();
         getline(std::cin,VATNr);
         std::cout << "Geef de korting in: ";
         std::cin >> volumeDiscount;
         
-        customers.push_back(new Company(name,address,type,VATNr,volumeDiscount));
-
-
-    case 2:
-    default:
+        customers.push_back(new Company(name,address,choiceType,VATNr,volumeDiscount));
         break;
+
+    case 'p':
+        customers.push_back(new Customer(name,address,choiceType));
+        break;        
     }
+
+    tirecenter.setCustomers(customers);
+}
+
+int search_Customer(TireCenter &tirecenter){
+    int choice, indexFoundCustomer=-1;
+
+    do{
+    std::cout << "Waarop wil je filteren: " << std::endl
+    << "\t1.Particulieren\n" << "\t2.Bedrijfsklanten\n" << "\t3.Zoeken op naam" << std::endl << "Maak een keuze: ";
+
+    std::cin >> choice;
+    }while(choice <= 0 && choice > 3);
+
+    std::vector<Customer*> customers = tirecenter.getCustomers();
+    switch(choice){
+        case 1:
+            filter_Private(tirecenter);
+            break;
+        case 2:
+            filter_Company(tirecenter);
+            break;
+        case 3:
+            indexFoundCustomer = filter_Customer_Name(tirecenter);
+            break;
+    }
+    return indexFoundCustomer;
+}
+
+void filter_Private(TireCenter &tirecenter){
+    int i=0;
+    std::vector<Customer*> customers;
+    customers = tirecenter.getCustomers();
+    
+    for(auto customer : customers){
+        if(customer->getType() == 'p'){
+            i++;
+            std::cout << i  << ":";
+            customer->printCustomer();
+        }
+    }
+}
+
+void filter_Company(TireCenter &tirecenter){
+    int i=0;
+    std::vector<Customer*> customers;
+    customers = tirecenter.getCustomers();
+    
+    for(auto customer : customers){
+        if(customer->getType() == 'c'){
+            i++;
+            std::cout << i  << ":";
+            Company* comp = dynamic_cast<Company*>(customer);
+            comp->printCompany();
+        }
+    }
+}
+
+int filter_Customer_Name(TireCenter &tirecenter){
+    std::string name;
+    std::vector<Customer*> customers;
+    customers = tirecenter.getCustomers();
+    //Sustomer* foundCustomer;
+    int i = 0;
+
+    std::cout << "Geef de naam van de klant in: ";
+    std::cin.ignore();
+    getline(std::cin,name);
+
+    for(auto customer : customers){
+        if (name == customer->getName()) {
+            if (customer->getType() == 'c') {
+                Company* comp = dynamic_cast<Company*>(customer);
+                comp->printCompany();
+            }
+            else if (customer->getType() == 'p') {
+                customer->printCustomer();
+            }
+            return i;
+            break;
+        }
+        i++;
+    } 
+    return -1;
+}
+
+void edit_Customer(TireCenter &tirecenter){
+    std::vector<Customer*> customers;
+    Customer* customer;
+    int choice;
+    int index = filter_Customer_Name(tirecenter);
+    
+    customers = tirecenter.getCustomers();
+    
+    if(index >= 0 && index < (int)customers.size()){
+        customer = customers[index];
+
+    do{
+            std::cout << "Welk item wil je bewerken: " << "\n Het veranderen van type klant is niet mogelijk hier voor moet je de klant verwijderen en weer toevoegen." 
+            << "\n\t1.Naam" << "\n\t2.adres";
+            if(customer->getType() == 'c'){
+                std::cout << "\n\t3.BTW nr" << "\n\t4.Korting" << std::endl;
+            }
+            std::cout << "\nMaak een keuze: ";
+            std::cin >> choice;
+        }while(choice < 1 && (choice > 2 && customer->getType() != 'c') && (choice < 4));
+
+    
+        if(choice == 1){
+            std::string newName;
+            std::cout << "\nGeef de nieuwe naam in: ";
+            std::cin >> newName;
+            customer->setName(newName);
+        }
+        else if(choice == 2){ 
+            std::string NewAdr;
+            std::cout << "\nGeef het nieuwe adres in: ";
+            std::cin >> NewAdr;
+            customer->setAddress(NewAdr);
+        }
+        else if(choice == 3){
+            std::string newVAT;
+            std::cout << "\nGeef het nieuwe BTWNr in: ";
+            std::cin >> newVAT;
+            Company* comp = dynamic_cast<Company*>(customer);
+            comp->setVATNr(newVAT);
+        }
+        else if(choice == 4){
+            int newVolumeDiscount;
+            std::cout << "Geef de nieuwe korting in: ";
+            std::cin >> newVolumeDiscount;
+            Company* comp = dynamic_cast<Company*>(customer);
+            comp->setVolumeDiscount(newVolumeDiscount);
+        } 
+    }   
 }

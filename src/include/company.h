@@ -19,4 +19,6 @@ class Company
 
     int getVolumeDiscount();
     void setVolumeDiscount(int);
+
+    void printCompany();
 };

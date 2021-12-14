@@ -24,6 +24,11 @@ int main(){
     articles.push_back(new Tire("test3","test",100,10,20,'t',20,10,"kfdhqk",'w'));
     tirecenter.setArticles(articles);
 
+    std::vector<Customer*> customers;
+    customers.push_back(new Customer("lotte","grasheide",'p'));
+    customers.push_back(new Company("faxie","bonheiden",'c',"BE04456",5));
+    tirecenter.setCustomers(customers);
+
 
     do{
         if(logged == 1){

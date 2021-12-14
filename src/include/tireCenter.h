@@ -17,10 +17,10 @@ class TireCenter{
         std::string getName();
         std::string getAddress();
         std::vector<Article*> getArticles();
-        std::vector<Customer*> getCustomer();
+        std::vector<Customer*> getCustomers();
 
         void setName(std::string inputName);
         void setAddress(std::string inputAddress);
         void setArticles(std::vector<Article*> inputArticle);
-        void setCustomer(std::vector<Customer*> inputCustomer);
+        void setCustomers(std::vector<Customer*> inputCustomer);
 };

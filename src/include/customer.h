@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iostream>
 
 class Customer
 {
@@ -9,6 +10,7 @@ class Customer
         char type;
     public:
         Customer(std::string name,std::string address,char type);
+        Customer();
         virtual ~Customer() = default;
 
         std::string getName();
@@ -18,4 +20,6 @@ class Customer
         void setName(std::string inputName);
         void setAddress(std::string inputAddress);
         void setType(char inputType);
+
+        void printCustomer();
 };
