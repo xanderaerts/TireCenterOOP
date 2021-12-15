@@ -46,3 +46,8 @@ void Rim::print(){
             << "\ncolor: " << getColor()
             << "\nwidth: " << getWidth() << std::endl;
 }
+
+Article* Rim::makeCopy(){
+    Article* newRim = new Rim(*this);
+    return newRim;
+}

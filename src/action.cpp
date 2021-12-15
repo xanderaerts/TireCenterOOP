@@ -507,3 +507,55 @@ void delete_Customer(TireCenter &tirecenter){
     delete customer;
     tirecenter.setCustomers(customers);
 }
+
+void add_Order(TireCenter &tirecenter){
+    Invoice* invoice = new Invoice;
+    std::vector<Article*> articles_On_Invoice;
+
+    std::cout << "Voor welke klant wil je een order plaatsen?" << std::endl;
+    int indexCustomer = filter_Customer_Name(tirecenter);
+    std::vector<Customer*> customers = tirecenter.getCustomers();
+    Customer* customer = customers[indexCustomer];
+
+    Customer* copyCust = customer->makecopy();
+    invoice->setCustomer(copyCust);
+
+    std::vector<Article*> articles = tirecenter.getArticles();
+    Article* article;
+
+    int choice,amount,stockUpdate;
+    std::cout << "Welk artikel wil je toevoegen aan dit order?" << std::endl;
+    do{
+        int indexArticle = search_Article(tirecenter,true);
+        article = articles[indexArticle];
+        Article* copyArt;
+        copyArt = article->makeCopy();
+
+        std::cout << "Hoeveel wil je er van " << copyArt->getName() << std::endl << "Aantal: ";
+        std::cin >> amount;
+
+        if(article->getStock() > amount){
+            stockUpdate = article->getStock() - amount;
+            copyArt->setStock(amount);
+            article->setStock(stockUpdate);
+
+            articles_On_Invoice.push_back(copyArt);
+        }
+        else{
+            std::cout << "Er is niet genoeg op voorraad van dit artikel" << std::endl << "Naam: " << article->getName()
+                << "Huidige voorraad: " << article->getStock() << std::endl;
+        }
+         
+        std::cout << "Wil je nog een artikel toevoegen? (1=ja,0=nee)" << std::endl;
+        std::cout << "Maak een keuze: ";
+        std::cin >> choice;       
+
+    }while(choice == 1);
+
+    invoice->setArticles(articles_On_Invoice);
+    
+    std::vector<Invoice*> invoices_In_TireCenter = tirecenter.getInvoices();
+    invoices_In_TireCenter.push_back(invoice);
+}
+
+

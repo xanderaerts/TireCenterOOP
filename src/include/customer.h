@@ -22,4 +22,5 @@ class Customer
         void setType(char inputType);
 
         void printCustomer();
+        virtual Customer* makecopy();
 };

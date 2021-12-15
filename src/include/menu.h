@@ -3,6 +3,7 @@
 #include <string>
 #include "article.h"
 #include "actions.h"
+#include "user.h"
 
 enum Menu{
     addOrder=1,
@@ -14,8 +15,10 @@ enum Menu{
     searchCust,
     editCust,
     deleteCust,
-    searchInvoice
+    searchInvoice,
+    goBack
 };
 
 std::string UseCaseToString(Menu);
-void printMenuUseCaseDetails(std::vector<Menu>,TireCenter &tirecenter);
+void printMenuUseCase(TireCenter &tirecenter,User user);
+void printMenuUseCaseDetails(std::vector<Menu>,TireCenter &tirecenter,User user);

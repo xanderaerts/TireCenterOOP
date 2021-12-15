@@ -55,4 +55,4 @@ void Article::printArticle(){
         << "\nDiameter: " << getDiameter()
         << "\nPrice: " << getPrice()
         << "\nType: " << getType();
-    }
+}

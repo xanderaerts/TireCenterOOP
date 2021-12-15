@@ -33,4 +33,5 @@ class Tire :
         virtual char getType();
 
         virtual void print();
+        virtual Article* makeCopy();
 };

@@ -20,6 +20,9 @@ std::vector<Article*> TireCenter::getArticles(){
 std::vector<Customer*> TireCenter::getCustomers(){
     return customers;
 }
+std::vector<Invoice*> TireCenter::getInvoices(){
+    return invoices;
+}
 
 void TireCenter::setName(std::string inputName){
     name = inputName;
@@ -33,5 +36,8 @@ void TireCenter::setArticles(std::vector<Article*> inputArticle){
 }
 void TireCenter::setCustomers(std::vector<Customer*> inputCustomer){
     customers = inputCustomer;
+}
+void TireCenter::setInvoices(std::vector<Invoice*> inputInvoice){
+    invoices = inputInvoice;
 }
 

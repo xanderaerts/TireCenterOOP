@@ -3,7 +3,6 @@
 #include <vector>
 #include <iostream>
 
-
 Menu menu;
 
 std::string useCaseToString(Menu inputUseCase){
@@ -28,12 +27,71 @@ std::string useCaseToString(Menu inputUseCase){
             return "Klant verwijderen";break;
         case searchInvoice:
             return "Factuur opvragen";break;
+        case goBack:
+            return "Terug";break;
     }
     return 0;
 }
 
+void printMenuUseCase(TireCenter &tirecenter,User user){
+    int choiceUseCaseGroup=-1;
 
-void printMenuUseCaseDetails(std::vector<Menu>UseCaseFunctions,TireCenter &tirecenter){
+    std::cout << "\n\n";
+    std::cout << "Welkom " << user.getUsername() << std::endl;
+    std::cout << "--------------" << std::endl;
+    
+    while(choiceUseCaseGroup<0 || choiceUseCaseGroup > 3){
+
+        std::cout << "\t1.Bestellingen" << std::endl;    
+        std::cout << "\t2.Artikels (zoeken/voorraad)" << std::endl;
+        std::cout << "\t3.Klantenbeheer" << std::endl;
+        std::cout << "\t4.Afsluiten" << std::endl;
+        std::cout << "Maak een keuze: ";
+        std::cin >> choiceUseCaseGroup;
+
+        switch(choiceUseCaseGroup){
+            case 1:
+                if(user.getRole() == "admin"){
+                    std::vector<Menu> UseCaseFunctions{addOrder,searchInvoice,goBack};
+                    printMenuUseCaseDetails(UseCaseFunctions,tirecenter,user);
+                }
+                else if(user.getRole() == "worker"){
+                    std::vector<Menu> UseCaseFunctions{addOrder,searchInvoice,goBack};
+                    printMenuUseCaseDetails(UseCaseFunctions,tirecenter,user);
+                }
+                break;
+            case 2:
+                if(user.getRole() == "admin"){
+                    std::vector<Menu> UseCaseFunctions{searchArtcle,addArticle,rmArticle,editArticle,goBack};
+                    printMenuUseCaseDetails(UseCaseFunctions,tirecenter,user);
+                }
+                else if(user.getRole() == "worker"){
+                    std::vector<Menu> UseCaseFunctions{searchArtcle,editArticle,goBack};
+                    printMenuUseCaseDetails(UseCaseFunctions,tirecenter,user);
+                }    
+                break;
+            
+            case 3:
+                if(user.getRole() == "admin"){
+                    std::vector<Menu> UseCaseFunctions{addCust,searchCust,editCust,deleteCust,goBack};
+                    printMenuUseCaseDetails(UseCaseFunctions,tirecenter,user);
+                }
+                else if(user.getRole() == "worker"){
+                    std::vector<Menu> UseCaseFunctions{addCust,searchCust,goBack};
+                    printMenuUseCaseDetails(UseCaseFunctions,tirecenter,user);
+                }
+                break;
+            case 4:
+                exit(-1);
+                //saving
+            default:
+            std::cout << "\nMaak een geldige keuze!"<<std::endl;
+                continue;
+        }
+    }
+}
+
+void printMenuUseCaseDetails(std::vector<Menu>UseCaseFunctions,TireCenter &tirecenter,User user){
 
     std::string option,test;
     int choice=1,lineNr{1};
@@ -57,7 +115,7 @@ void printMenuUseCaseDetails(std::vector<Menu>UseCaseFunctions,TireCenter &tirec
     
         switch(useCaseChoice){
             case addOrder:
-                std::cout << "addorder";
+                add_Order(tirecenter);
                 break;
             case searchArtcle:
                 search_Article(tirecenter,false);
@@ -85,6 +143,8 @@ void printMenuUseCaseDetails(std::vector<Menu>UseCaseFunctions,TireCenter &tirec
                 break;
             case searchInvoice:
                 std::cout << "searchInvoic";break;
+            case goBack:
+                printMenuUseCase(tirecenter,user);
             default:
                 std::cout << "\n\nMaak een geldige keuze!" << std::endl;
                 continue;

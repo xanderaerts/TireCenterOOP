@@ -32,5 +32,6 @@ class Article
         void setType(char inputType);
         void printArticle();
         virtual void print() = 0;
+        virtual Article* makeCopy() = 0;
 
 };

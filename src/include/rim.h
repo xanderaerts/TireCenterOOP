@@ -30,4 +30,5 @@ class Rim:
         virtual char getType();
 
         virtual void print();
+        virtual Article* makeCopy();
 };

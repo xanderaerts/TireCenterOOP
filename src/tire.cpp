@@ -52,3 +52,9 @@ char Tire::getType(){
             << "\nSpeedindex: " << getSpeedIndex()
             << "\nseason: " << getSeason() << std::endl;;
 }
+
+
+Article* Tire::makeCopy(){
+    Article* newTire = new Tire(*this);
+    return newTire;
+}

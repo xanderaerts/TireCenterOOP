@@ -5,7 +5,7 @@
 
 class Invoice{
     private:
-    Customer customer;
+    Customer* customer;
     std::vector<Article*> articles;
     float price;
     int discount;
@@ -14,8 +14,8 @@ class Invoice{
         Invoice();
         ~Invoice();
 
-        Customer getCustomer();
-        void setCustomer(Customer);
+        Customer* getCustomer();
+        void setCustomer(Customer*);
         
         std::vector<Article*> getArticles();
         void setArticles(std::vector<Article*>);
@@ -28,6 +28,8 @@ class Invoice{
 
         float calculateDiscount();
         float calculatePrice();
+
+        void printInvoice();
 
         
 

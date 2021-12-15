@@ -7,7 +7,7 @@ Invoice::~Invoice(){}
 
 
 
-Customer Invoice::getCustomer(){
+Customer* Invoice::getCustomer(){
     return customer;
 }
 std::vector<Article*> Invoice::getArticles(){
@@ -20,7 +20,7 @@ int Invoice::getDiscount(){
     return discount;
 }
 
-void Invoice::setCustomer(Customer inputCustomer){
+void Invoice::setCustomer(Customer* inputCustomer){
     customer = inputCustomer;
 }
 void Invoice::setArticles(std::vector<Article*> inputArticles){
@@ -39,6 +39,20 @@ float Invoice::calculateDiscount(){
 }
 
 float Invoice::calculatePrice(){
-    //
-    return 0;
+    int sum;
+    for(auto article : articles){
+        sum += (article->getPrice()) * article->getStock();  //stock is used here to asing the amount of articles sold        
+    }
+    return sum;
+}
+void Invoice::printInvoice(){
+    std::cout << "-----Invoice-----" << "\n\n" << "Naam: " << getCustomer()->getName()
+    << "Artikels: ";
+    for(auto article : getArticles()){
+        std::cout << "\n" << article->getName() << std::endl //aantal nog bij zetten
+        << "TOTAAL:" << calculatePrice()
+        << "Korting" << calculateDiscount()
+        << "Totaal na korting: " << calculatePrice() - calculateDiscount() << std::endl;
+
+    }
 }

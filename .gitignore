@@ -2,3 +2,5 @@ build/
 .vscode/
 todo.md
 extra/
+.vs/
+.VSCodeCounter/

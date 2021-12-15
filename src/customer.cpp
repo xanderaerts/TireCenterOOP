@@ -31,3 +31,8 @@ void Customer::setType(char inputType){
 void Customer::printCustomer(){
     std::cout << "\nNaam: " << getName() << "\nAdres: " << getAddress() << "\nType: " << getType() << std::endl;
 }
+
+Customer* Customer::makecopy(){
+    Customer* newCust = new Customer(*this);
+    return newCust;
+}

@@ -31,3 +31,8 @@ void Company::printCompany(){
     Customer::printCustomer();
     std::cout << "\nBTW NR: " << getVATNr() << "\nKorting: " << getVolumeDiscount() << std::endl;
 }
+
+Company* Company::makecopy(){
+    Company* newComp = new Company(*this);
+    return newComp;
+}

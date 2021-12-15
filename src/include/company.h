@@ -21,4 +21,6 @@ class Company
     void setVolumeDiscount(int);
 
     void printCompany();
+
+    Company* makecopy();
 };
