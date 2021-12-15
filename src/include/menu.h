@@ -13,6 +13,7 @@ enum Menu{
     addCust,
     searchCust,
     editCust,
+    deleteCust,
     searchInvoice
 };
 

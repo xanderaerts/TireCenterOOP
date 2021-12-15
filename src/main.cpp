@@ -131,7 +131,7 @@ void printMenuUseCase(){
             
             case 3:
                 if(user.getRole() == "admin"){
-                    std::vector<Menu> UseCaseFunctions{addCust,searchCust,editCust};
+                    std::vector<Menu> UseCaseFunctions{addCust,searchCust,editCust,deleteCust};
                     printMenuUseCaseDetails(UseCaseFunctions,tirecenter);
                 }
                 else if(user.getRole() == "worker"){

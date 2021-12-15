@@ -9,23 +9,25 @@ Menu menu;
 std::string useCaseToString(Menu inputUseCase){
     switch(inputUseCase){
         case addOrder:
-            return "Bestelling toevoegen";
+            return "Bestelling toevoegen";break;
         case searchArtcle:
-            return "Artikel opvragen";
+            return "Artikel opvragen";break;
         case addArticle:
-            return "Artikel toevoegen";
+            return "Artikel toevoegen";break;
         case rmArticle:
-            return "Artikel verwijderen";
+            return "Artikel verwijderen";break;
         case editArticle:
-            return "Artikel bewerken";
+            return "Artikel bewerken";break;
         case addCust:
-            return "Klant toevoegen";
+            return "Klant toevoegen";break;
         case searchCust:
-            return "Klant opvragen";
+            return "Klant opvragen";break;
         case editCust:
-            return "Klant bewerken";
+            return "Klant bewerken";break;
+        case deleteCust:
+            return "Klant verwijderen";break;
         case searchInvoice:
-            return "Factuur opvragen";
+            return "Factuur opvragen";break;
     }
     return 0;
 }
@@ -77,6 +79,9 @@ void printMenuUseCaseDetails(std::vector<Menu>UseCaseFunctions,TireCenter &tirec
                 break;
             case editCust:
                 edit_Customer(tirecenter);
+                break;
+            case deleteCust:
+                delete_Customer(tirecenter);
                 break;
             case searchInvoice:
                 std::cout << "searchInvoic";break;

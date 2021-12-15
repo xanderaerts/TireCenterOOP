@@ -498,3 +498,12 @@ void edit_Customer(TireCenter &tirecenter){
         } 
     }   
 }
+
+void delete_Customer(TireCenter &tirecenter){
+    std::vector<Customer*> customers = tirecenter.getCustomers();
+    int index = filter_Customer_Name(tirecenter);
+    Customer* customer = customers[index];
+    customers.erase(customers.begin()+ (index));
+    delete customer;
+    tirecenter.setCustomers(customers);
+}
