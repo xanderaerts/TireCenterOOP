@@ -28,7 +28,9 @@ void edit_Customer(TireCenter &tirecenter);
 void delete_Customer(TireCenter &tirecenter);
 
 //all functions for orders and invoices
+void update_Stock(Article* article, int updateAmount);
 void add_Order(TireCenter &tirecenter);
+void check_Invoices(TireCenter &tirecenter);
 
 
 

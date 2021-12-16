@@ -25,7 +25,7 @@ std::string useCaseToString(Menu inputUseCase){
             return "Klant bewerken";break;
         case deleteCust:
             return "Klant verwijderen";break;
-        case searchInvoice:
+        case checkInvoice:
             return "Factuur opvragen";break;
         case goBack:
             return "Terug";break;
@@ -52,11 +52,11 @@ void printMenuUseCase(TireCenter &tirecenter,User user){
         switch(choiceUseCaseGroup){
             case 1:
                 if(user.getRole() == "admin"){
-                    std::vector<Menu> UseCaseFunctions{addOrder,searchInvoice,goBack};
+                    std::vector<Menu> UseCaseFunctions{addOrder,checkInvoice,goBack};
                     printMenuUseCaseDetails(UseCaseFunctions,tirecenter,user);
                 }
                 else if(user.getRole() == "worker"){
-                    std::vector<Menu> UseCaseFunctions{addOrder,searchInvoice,goBack};
+                    std::vector<Menu> UseCaseFunctions{addOrder,checkInvoice,goBack};
                     printMenuUseCaseDetails(UseCaseFunctions,tirecenter,user);
                 }
                 break;
@@ -141,10 +141,12 @@ void printMenuUseCaseDetails(std::vector<Menu>UseCaseFunctions,TireCenter &tirec
             case deleteCust:
                 delete_Customer(tirecenter);
                 break;
-            case searchInvoice:
-                std::cout << "searchInvoic";break;
+            case checkInvoice:
+                check_Invoices(tirecenter);
+                break;
             case goBack:
                 printMenuUseCase(tirecenter,user);
+                break;
             default:
                 std::cout << "\n\nMaak een geldige keuze!" << std::endl;
                 continue;

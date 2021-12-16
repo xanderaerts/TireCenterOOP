@@ -508,6 +508,11 @@ void delete_Customer(TireCenter &tirecenter){
     tirecenter.setCustomers(customers);
 }
 
+void update_Stock(Article* article,int updateAmount){
+    int diff = article->getStock() - updateAmount;
+    article->setStock(diff);
+}
+
 void add_Order(TireCenter &tirecenter){
     Invoice* invoice = new Invoice;
     std::vector<Article*> articles_On_Invoice;
@@ -523,7 +528,7 @@ void add_Order(TireCenter &tirecenter){
     std::vector<Article*> articles = tirecenter.getArticles();
     Article* article;
 
-    int choice,amount,stockUpdate;
+    int choice,amount;
     std::cout << "Welk artikel wil je toevoegen aan dit order?" << std::endl;
     do{
         int indexArticle = search_Article(tirecenter,true);
@@ -535,9 +540,8 @@ void add_Order(TireCenter &tirecenter){
         std::cin >> amount;
 
         if(article->getStock() > amount){
-            stockUpdate = article->getStock() - amount;
+            update_Stock(article,amount);
             copyArt->setStock(amount);
-            article->setStock(stockUpdate);
 
             articles_On_Invoice.push_back(copyArt);
         }
@@ -558,4 +562,15 @@ void add_Order(TireCenter &tirecenter){
     invoices_In_TireCenter.push_back(invoice);
 }
 
+void check_Invoices(TireCenter &tirecenter){
+    std::vector<Invoice*> invoices = tirecenter.getInvoices();
+    int i = 0;
 
+    for(auto invoice : invoices){
+        i++;
+        invoice->printInvoice();
+    }
+    if(i == 0){
+        std::cout << "Er werden geen facturen gevonden." << std::endl;
+    }
+}

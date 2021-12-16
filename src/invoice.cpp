@@ -39,7 +39,7 @@ float Invoice::calculateDiscount(){
 }
 
 float Invoice::calculatePrice(){
-    int sum;
+    int sum=0;
     for(auto article : articles){
         sum += (article->getPrice()) * article->getStock();  //stock is used here to asing the amount of articles sold        
     }

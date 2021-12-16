@@ -17,17 +17,20 @@ int main(){
     int logged = 0;
     
     std::vector<Article*> articles;
-    articles.push_back(new Tire("test","coolemaker",100,10,20,'t',20,10,"FWAGEG",'w'));
-    articles.push_back(new Tire("test1","test",100,10,20,'t',20,10,"FWAGEG",'w'));
-    articles.push_back(new Tire("test2","test",100,10,20,'t',20,10,"FWAGEG",'w'));
-    articles.push_back(new Tire("test3","test",100,10,20,'t',20,10,"kfdhqk",'w'));
+    articles.push_back(new Tire("testband","coolemaker",100,10,20,'t',20,10,"FWAGEG",'w'));
+    articles.push_back(new Tire("testband1","testband",100,10,20,'t',20,10,"FWAGEG",'w'));
+    articles.push_back(new Tire("testband2","testband",100,10,20,'t',20,10,"FWAGEG",'w'));
+    articles.push_back(new Tire("testband3","test",100,10,20,'t',20,10,"kfdhqk",'w'));
+    articles.push_back(new Rim("testvelg","coolemaker",100,10,20,'r',0,"red",16));
+    articles.push_back(new Rim("testvelg1","testvelg",100,10,20,'r',1,"blue",16));
+    articles.push_back(new Rim("testvelg2","testvelg",100,10,20,'r',0,"green",16));
+    articles.push_back(new Rim("testvelg3","testvelg",100,10,20,'r',1,"blue",16));
     tirecenter.setArticles(articles);
 
     std::vector<Customer*> customers;
     customers.push_back(new Customer("lotte","grasheide",'p'));
     customers.push_back(new Company("faxie","bonheiden",'c',"BE04456",5));
     tirecenter.setCustomers(customers);
-
 
     do{
         if(logged == 1){

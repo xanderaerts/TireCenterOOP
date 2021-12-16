@@ -15,7 +15,7 @@ enum Menu{
     searchCust,
     editCust,
     deleteCust,
-    searchInvoice,
+    checkInvoice,
     goBack
 };
 
