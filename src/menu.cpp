@@ -35,6 +35,7 @@ std::string useCaseToString(Menu inputUseCase){
 
 void printMenuUseCase(TireCenter &tirecenter,User user){
     int choiceUseCaseGroup=-1;
+    std::string titels[3] = {"\n-----Bestellingen-----","\n-----Artikels-----","\n-----Klanten-----"};
 
     std::cout << "\n\n";
     std::cout << "Welkom " << user.getUsername() << std::endl;
@@ -51,6 +52,7 @@ void printMenuUseCase(TireCenter &tirecenter,User user){
 
         switch(choiceUseCaseGroup){
             case 1:
+                std::cout << titels[0];
                 if(user.getRole() == "admin"){
                     std::vector<Menu> UseCaseFunctions{addOrder,checkInvoice,goBack};
                     printMenuUseCaseDetails(UseCaseFunctions,tirecenter,user);
@@ -61,6 +63,7 @@ void printMenuUseCase(TireCenter &tirecenter,User user){
                 }
                 break;
             case 2:
+            std::cout << titels[1];
                 if(user.getRole() == "admin"){
                     std::vector<Menu> UseCaseFunctions{searchArtcle,addArticle,rmArticle,editArticle,goBack};
                     printMenuUseCaseDetails(UseCaseFunctions,tirecenter,user);
@@ -72,6 +75,7 @@ void printMenuUseCase(TireCenter &tirecenter,User user){
                 break;
             
             case 3:
+            std::cout << titels[2];
                 if(user.getRole() == "admin"){
                     std::vector<Menu> UseCaseFunctions{addCust,searchCust,editCust,deleteCust,goBack};
                     printMenuUseCaseDetails(UseCaseFunctions,tirecenter,user);
@@ -97,8 +101,6 @@ void printMenuUseCaseDetails(std::vector<Menu>UseCaseFunctions,TireCenter &tirec
     int choice=1,lineNr{1};
     bool exit = false;
 
-    
-    //TODO fixing title
 
     while(!exit){
         std::cout << "\n\n";

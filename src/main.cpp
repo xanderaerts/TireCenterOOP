@@ -72,7 +72,7 @@ void authenticateUser(){
     int attemps=0;
     std::string inputPass="",inputUsername;
 
-    while(attemps < 4 && inputPass != user.getPassword()){
+    while(attemps <= 3 && inputPass != user.getPassword()){
         std::cout << "Username: ";
         std::cin >> inputUsername;
         std::cout << "Passwoord: ";
@@ -86,7 +86,7 @@ void authenticateUser(){
             user.setUsername(inputUsername);
             printMenuUseCase(tirecenter,user);
         }
-        else if(attemps > 3){
+        else if(attemps >= 3){
             std::cout << "Toegang geweigerd, te veel pogingen!" << std:: endl;
             exit(-1);
         }

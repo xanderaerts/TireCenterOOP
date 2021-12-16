@@ -546,8 +546,8 @@ void add_Order(TireCenter &tirecenter){
             articles_On_Invoice.push_back(copyArt);
         }
         else{
-            std::cout << "Er is niet genoeg op voorraad van dit artikel" << std::endl << "Naam: " << article->getName()
-                << "Huidige voorraad: " << article->getStock() << std::endl;
+            std::cout << "\nEr is niet genoeg op voorraad van dit artikel" << std::endl << "Naam: " << article->getName()
+                << "\nHuidige voorraad: " << article->getStock() << std::endl;
         }
          
         std::cout << "Wil je nog een artikel toevoegen? (1=ja,0=nee)" << std::endl;
@@ -560,6 +560,7 @@ void add_Order(TireCenter &tirecenter){
     
     std::vector<Invoice*> invoices_In_TireCenter = tirecenter.getInvoices();
     invoices_In_TireCenter.push_back(invoice);
+    tirecenter.setInvoices(invoices_In_TireCenter);
 }
 
 void check_Invoices(TireCenter &tirecenter){
