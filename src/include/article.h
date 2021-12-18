@@ -16,6 +16,8 @@ class Article
         Article(std::string name, std::string manufacturer,
         int stock, int diameter, float price, char type);
         virtual ~Article() = default;
+
+        Article();
         
         std::string getName();
         std::string getManufacturer();

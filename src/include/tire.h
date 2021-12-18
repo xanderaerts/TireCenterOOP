@@ -17,6 +17,8 @@ class Tire :
         int stock, int diameter, float price, char type,
         int width, int height, std::string speedIndex, char season);
         virtual ~Tire()= default;
+
+        Tire();
         
         int getWidth();
         void setWidth(int);

@@ -9,9 +9,10 @@ Rim::Rim(std::string name, std::string manufacturer,
          bool aluminium, std::string color,int width)
     : Article (name, manufacturer, stock, diameter, price, type),
      aluminium(aluminium), color(color),width(width)
-{
-    
+{   
 }
+
+Rim::Rim(){}
 
 bool Rim::getAluminium(){
     return aluminium;

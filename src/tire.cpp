@@ -12,6 +12,8 @@ Tire::Tire(std::string name, std::string manufacturer,
 {
 }
 
+Tire::Tire() {}
+
 int Tire::getWidth(){
     return width;
 }

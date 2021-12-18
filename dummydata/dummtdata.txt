@@ -1,0 +1,32 @@
+name: Contiecocontact 5
+manufacturer: continental
+stock: x
+diameter: 14
+price: 93,41
+width: 205 
+height: 55
+speedindex: H
+season: W
+
+
+name: Contisportcontact 5 FR
+manufacturer: continental
+stock: x
+diameter: 17
+price: 93,41
+width: 235 
+height: 50
+speedindex: H
+season: Z
+
+name: Goodride SA57
+manufacturer: GoodRide
+stock: x
+diameter: 22
+price: 136
+width: 305
+height: 45
+speedindex: H
+season: Z
+ 
+

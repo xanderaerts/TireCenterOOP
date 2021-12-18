@@ -47,6 +47,7 @@ void add_Article(TireCenter &tirecenter){
             
             Articles.push_back(new Tire(name,manufacturer,stock,diameter,price,type,width,height,speedindex,season));
             tirecenter.setArticles(Articles);
+            break;
         }
         else if(type == 'r'){
             bool aluminium;
@@ -62,11 +63,14 @@ void add_Article(TireCenter &tirecenter){
             
             Articles.push_back(new Rim(name,manufacturer,stock,diameter,price,type,aluminium,color,width));
             tirecenter.setArticles(Articles);
+            break;
         }
         else{
             std::cout << "\n Geef een geldige keuze in! (t/r)" << std::endl;
         }
     }while(type != 't' || type != 'r');
+    
+    std::cout << "Het article werd toegevoegd!" << std::endl;
 }
 
 int search_Article(TireCenter &tirecenter,bool unicChoice){

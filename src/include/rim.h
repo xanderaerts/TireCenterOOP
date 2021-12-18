@@ -18,6 +18,8 @@ class Rim:
             bool aluminium, std::string color,int width);
         virtual ~Rim() = default;
 
+        Rim();
+
         bool getAluminium();
         void setAluminium(bool);
 

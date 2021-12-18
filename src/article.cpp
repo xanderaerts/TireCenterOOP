@@ -10,6 +10,8 @@ Article::Article(std::string name, std::string manufacturer,
     
 }
 
+Article::Article() {}
+
 std::string Article::getName(){
     return name;
 }

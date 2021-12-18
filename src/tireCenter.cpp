@@ -1,10 +1,13 @@
 #include <vector>
 #include <string>
 #include "include/tireCenter.h"
+#include "include/filehandeling.h"
 
 
 
-TireCenter::TireCenter(){}
+TireCenter::TireCenter(){
+
+}
 
 TireCenter::~TireCenter(){}
 

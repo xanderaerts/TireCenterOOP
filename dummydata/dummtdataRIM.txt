@@ -1,0 +1,8 @@
+name: BX1 Black Gloss
+manu: Alkatec
+stock: x
+diameter: 16
+price: 85
+alu: ja
+color: black
+width: 6
