@@ -21,12 +21,9 @@ int main(){
     int logged = 0;
 
     loadArticles(tirecenter);
+    loadCustomers(tirecenter);
+    loadInvoices(tirecenter);
     
-    std::vector<Customer*> customers;
-    customers.push_back(new Customer("lotte","grasheide",'p'));
-    customers.push_back(new Company("faxie","bonheiden",'c',"BE04456",5));
-    tirecenter.setCustomers(customers);
-
     do{
         if(logged == 1){
             printMenuUseCase(tirecenter,user);

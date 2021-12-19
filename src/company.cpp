@@ -10,6 +10,8 @@ Company::Company(std::string name, std::string address,char type,
     
 }
 
+Company::Company(){}
+
 
 //Company::~Company(){}
 
@@ -29,7 +31,7 @@ void Company::setVolumeDiscount(int inputVolumeDiscount){
 
 void Company::printCompany(){
     Customer::printCustomer();
-    std::cout << "\nBTW NR: " << getVATNr() << "\nKorting: " << getVolumeDiscount() << std::endl;
+    std::cout << "BTW NR: " << getVATNr() << "\nKorting: " << getVolumeDiscount() << std::endl;
 }
 
 Company* Company::makecopy(){

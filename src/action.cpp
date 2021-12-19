@@ -348,7 +348,7 @@ void add_Customer(TireCenter &tirecenter){
     std::cin >> choiceType;
 
     std::vector<Customer*> customers;
-    tirecenter.getCustomers();
+    customers = tirecenter.getCustomers();
 
     switch (choiceType)
     {
@@ -403,7 +403,7 @@ void filter_Private(TireCenter &tirecenter){
     for(auto customer : customers){
         if(customer->getType() == 'p'){
             i++;
-            std::cout << i  << ":";
+            std::cout <<"\n" << i  << ":";
             customer->printCustomer();
         }
     }
@@ -417,7 +417,7 @@ void filter_Company(TireCenter &tirecenter){
     for(auto customer : customers){
         if(customer->getType() == 'c'){
             i++;
-            std::cout << i  << ":";
+            std::cout << "\n" << i  << ":";
             Company* comp = dynamic_cast<Company*>(customer);
             comp->printCompany();
         }
@@ -435,7 +435,9 @@ int filter_Customer_Name(TireCenter &tirecenter){
     std::cin.ignore();
     getline(std::cin,name);
 
+    
     for(auto customer : customers){
+        std::cout << "test"; 
         if (name == customer->getName()) {
             if (customer->getType() == 'c') {
                 Company* comp = dynamic_cast<Company*>(customer);
