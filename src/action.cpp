@@ -1,4 +1,3 @@
-//here are all the function's declared
 #include <iostream>
 #include "include/actions.h"
 
@@ -27,7 +26,7 @@ void add_Article(TireCenter &tirecenter){
     std::cin >> diameter;
     std::cout << "Price: ";
     std::cin >> price;
-    std::cout << "Type: ";
+    std::cout << "Type (t/r): ";
     std::cin >> type;
 
     do{
@@ -102,14 +101,15 @@ int search_Article(TireCenter &tirecenter,bool unicChoice){
         break;
     }
 
-    if(foundArticle){
+    if(foundArticle != nullptr){
 
-    for(auto a : articles){
-        if(a== foundArticle){
-            return i; 
+        for (auto a : articles) {
+            if (a == foundArticle) {
+                return i;
+            }
+            i++;
         }
-        i++;
-    }}
+    }   
     return -1;
 }
 
@@ -139,7 +139,7 @@ Article* filterTires(std::vector<Article*> articles,bool unicChoice){
         }while(choice < 0 || choice >= (int)printedArticles.size());
         return printedArticles[choice];
     }
-    return 0;
+    return nullptr;
 }
 
 Article* filterRims(std::vector<Article*> articles,bool unicChoice){
@@ -169,7 +169,7 @@ Article* filterRims(std::vector<Article*> articles,bool unicChoice){
         }while(choice < 0 || choice >= (int)printedArticles.size());
         return printedArticles[choice];
     }
-    return 0;
+    return nullptr;
 }
 
 Article* filterSize(std::vector<Article*> articles,bool unicChoice){
@@ -202,7 +202,7 @@ Article* filterSize(std::vector<Article*> articles,bool unicChoice){
         }while(choice < 0 || choice >= (int)printedArticles.size());
         return printedArticles[choice];
     }
-    return 0;
+    return nullptr;
 }
 
 void delete_Articles(TireCenter &tirecenter){
@@ -246,103 +246,120 @@ void edit_Article(TireCenter &tirecenter){
             std::cout << "\nMaak een keuze: ";
             std::cin >> choice;
             choice++;
-        }while(choice < 0 || choice > DATAMEMBART+TIREDATAMEMB || choice > DATAMEMBART + RIMDATAMEMB);
+        }while(choice < 0 || choice > DATAMEMBART+TIREDATAMEMB  || choice > DATAMEMBART + RIMDATAMEMB + 1);
 
-        if(choice <= DATAMEMBART-1){
-            if(choice-1 == 1){
+        if (choice <= DATAMEMBART - 1) {
+            if (choice - 1 == 1) {
                 std::string newName;
                 std::cout << "Geef de nieuwe naam voor het article in: ";
                 std::cin >> newName;
                 article->setName(newName);
             }
-            else if(choice - 1 == 2){
+            else if (choice - 1 == 2) {
                 std::string newManufacturer;
                 std::cout << "Geef de nieuwe manufacturerer in: ";
                 std::cin >> newManufacturer;
                 article->setManufacturer(newManufacturer);
             }
-            else if(choice - 1 == 3){
+            else if (choice - 1 == 3) {
                 int newStock;
                 std::cout << "Geef de nieuwe stock in: ";
                 std::cin >> newStock;
                 article->setStock(newStock);
             }
-            else if(choice - 1 == 4){
+            else if (choice - 1 == 4) {
                 int newDiameter;
                 std::cout << "Geef de nieuwe diameter in: ";
                 std::cin >> newDiameter;
                 article->setDiameter(newDiameter);
             }
-            else if(choice - 1 == 5){
+            else if (choice - 1 == 5) {
                 float newPrice;
                 std::cout << "Geef de nieuwe prijs in: ";
                 std::cin >> newPrice;
                 article->setPrice(newPrice);
             }
-            else{
-                if(article->getType()=='t'){
-                    Tire* tire = dynamic_cast<Tire*>(article);
-                    if(choice == 7){
-                        int newWidth;
-                        std::cout << "Geef de nieuwe breedte in: ";
-                        std::cin >> newWidth;
-                        tire->setWidth(newWidth);                        
-                    }
-                    else if(choice == 8){
-                        int newHeight;
-                        std::cout << "Geef de nieuwe hoogte in: ";
-                        std::cin >> newHeight;
-                        tire->setHeight(newHeight);
-                    }
-                    else if(choice == 9){
-                        std::string newSpeedIndex;
-                        std::cout << "Geef de nieuwe speedindex in: ";
-                        std::cin >> newSpeedIndex;
-                        tire->setSpeedIndex(newSpeedIndex);
-                    }
-                    else if(choice == 10){
-                        char newSeason;
-                        std::cout << "Geef het nieuwe season in: ";
-                        std::cin >> newSeason;
-                        tire->setSeason(newSeason);
-                    }
+        }
+        else{
+            if(article->getType()=='t'){
+                Tire* tire = dynamic_cast<Tire*>(article);
+                if(choice - 1 == 6){
+                    int newWidth;
+                    std::cout << "Geef de nieuwe breedte in: ";
+                    std::cin >> newWidth;
+                    tire->setWidth(newWidth);                        
                 }
-                else if(article->getType() == 'r' ){
-                    Rim* rim = dynamic_cast<Rim*>(article);
-                    if(choice == 7){
-                        bool newAluminium;
-                        std::cout << "Geef de nieuwe waarde voor Aluminium in (O/1): ";
-                        std::cin >> newAluminium;
-                        rim->setAluminium(newAluminium);
-                    }
-                    else if(choice == 8){
-                        std::string newColor;
-                        std::cout << "Geef de nieuwe color in: ";
-                        std::cin >> newColor;
-                        rim->setColor(newColor);
-                    }
-                    else if(choice == 9){
-                        int newWidth;
-                        std::cout << "Geef de nieuwe breedte in: ";
-                        std::cin >> newWidth;
-                        rim->setWidth(newWidth);
-                    }
+                else if(choice - 1 == 7){
+                    int newHeight;
+                    std::cout << "Geef de nieuwe hoogte in: ";
+                    std::cin >> newHeight;
+                    tire->setHeight(newHeight);
+                }
+                else if(choice - 1 == 8){
+                    std::string newSpeedIndex;
+                    std::cout << "Geef de nieuwe speedindex in: ";
+                    std::cin >> newSpeedIndex;
+                    tire->setSpeedIndex(newSpeedIndex);
+                }
+                else if(choice - 1 == 9){
+                    char newSeason;
+                    std::cout << "Geef het nieuwe season in: ";
+                    std::cin >> newSeason;
+                    tire->setSeason(newSeason);
                 }
             }
-        }   
+            else if(article->getType() == 'r' ){
+                Rim* rim = dynamic_cast<Rim*>(article);
+                if(choice - 1 == 7){
+                    bool newAluminium;
+                    std::cout << "Geef de nieuwe waarde voor Aluminium in (O/1): ";
+                    std::cin >> newAluminium;
+                    rim->setAluminium(newAluminium);
+                }
+                else if(choice - 1 == 8){
+                    std::string newColor;
+                    std::cout << "Geef de nieuwe color in: ";
+                    std::cin >> newColor;
+                    rim->setColor(newColor);
+                }
+                else if(choice - 1 == 9){
+                    int newWidth;
+                    std::cout << "Geef de nieuwe breedte in: ";
+                    std::cin >> newWidth;
+                    rim->setWidth(newWidth);
+                }
+            }
+        }
+        std::cout << "\nHet artikel werd bewerkt." << std::endl;  
     }
+    
 }
 
 void add_Customer(TireCenter &tirecenter){
     std::string name,address,VATNr{};
     char choiceType;
     int volumeDiscount{};
+    bool notUnic;
+    std::vector<Customer*> curCustomers = tirecenter.getCustomers();
 
-    std::cout << "\nGeef de naam van de klant in: "; 
-    std::cin.ignore();
-    getline(std::cin,name);
+    do{
+        std::cout << "\nGeef de naam van de klant in: "; 
+        std::cin.ignore();
+        getline(std::cin,name);
+
+        for(auto customer : curCustomers){
+            if(name == customer->getName()){
+                notUnic = true;
+                std::cout << "Er bestaat al een klant met deze naam";
+            }
+            else{
+                notUnic = false;
+            }
+        }
+
+    } while (notUnic);
+
     std::cout << "Geef het adres van de klant in: ";
-    //std::cin.ignore();
     getline(std::cin,address);
     std::cout << "Is het een bedrijfsklant?(c=ja,p=nee)";
     std::cin >> choiceType;
@@ -428,7 +445,6 @@ int filter_Customer_Name(TireCenter &tirecenter){
     std::string name;
     std::vector<Customer*> customers;
     customers = tirecenter.getCustomers();
-    //Sustomer* foundCustomer;
     int i = 0;
 
     std::cout << "Geef de naam van de klant in: ";
@@ -437,7 +453,6 @@ int filter_Customer_Name(TireCenter &tirecenter){
 
     
     for(auto customer : customers){
-        std::cout << "test"; 
         if (name == customer->getName()) {
             if (customer->getType() == 'c') {
                 Company* comp = dynamic_cast<Company*>(customer);
@@ -451,6 +466,8 @@ int filter_Customer_Name(TireCenter &tirecenter){
         }
         i++;
     } 
+
+    std::cout << "\nEr werd geen klant gevonden met deze naam." << std::endl;
     return -1;
 }
 
@@ -512,6 +529,8 @@ void delete_Customer(TireCenter &tirecenter){
     customers.erase(customers.begin()+ (index));
     delete customer;
     tirecenter.setCustomers(customers);
+
+    std::cout << "\n De klant is verwijderd." << std::endl;
 }
 
 void update_Stock(Article* article,int updateAmount){
@@ -525,48 +544,59 @@ void add_Order(TireCenter &tirecenter){
 
     std::cout << "Voor welke klant wil je een order plaatsen?" << std::endl;
     int indexCustomer = filter_Customer_Name(tirecenter);
+    int indexArticle= 1;
     std::vector<Customer*> customers = tirecenter.getCustomers();
-    Customer* customer = customers[indexCustomer];
 
-    Customer* copyCust = customer->makecopy();
-    invoice->setCustomer(copyCust);
+    if (indexCustomer >= 0) {
+        Customer* customer = customers[indexCustomer];
 
-    std::vector<Article*> articles = tirecenter.getArticles();
-    Article* article;
+        Customer* copyCust = customer->makecopy();
+        invoice->setCustomer(copyCust);
 
-    int choice,amount;
-    std::cout << "Welk artikel wil je toevoegen aan dit order?" << std::endl;
-    do{
-        int indexArticle = search_Article(tirecenter,true);
-        article = articles[indexArticle];
-        Article* copyArt;
-        copyArt = article->makeCopy();
+        std::vector<Article*> articles = tirecenter.getArticles();
+        Article* article;
 
-        std::cout << "Hoeveel wil je er van " << copyArt->getName() << std::endl << "Aantal: ";
-        std::cin >> amount;
+        int choice=0, amount;
 
-        if(article->getStock() > amount){
-            update_Stock(article,amount);
-            copyArt->setStock(amount);
+        std::cout << "Welk artikel wil je toevoegen aan dit order?" << std::endl;
+        do {
+            indexArticle = search_Article(tirecenter, true);
+            if (indexArticle >= 0) {
+                article = articles[indexArticle];
+                Article* copyArt;
+                copyArt = article->makeCopy();
 
-            articles_On_Invoice.push_back(copyArt);
+                std::cout << "Hoeveel wil je er van " << copyArt->getName() << std::endl << "Aantal: ";
+                std::cin >> amount;
+
+                if (article->getStock() > amount) {
+                    update_Stock(article, amount);
+                    copyArt->setStock(amount);
+
+                    articles_On_Invoice.push_back(copyArt);
+                }
+                else {
+                    std::cout << "\nEr is niet genoeg op voorraad van dit artikel" << std::endl << "Naam: " << article->getName()
+                        << "\n\nHuidige voorraad: " << article->getStock() << std::endl << std::endl;
+                }
+
+                std::cout << "Wil je nog een artikel toevoegen? (1=ja,0=nee)" << std::endl;
+                std::cout << "Maak een keuze: ";
+                std::cin >> choice;
+                }
+
+        } while (choice == 1);
+
+        if(indexCustomer >= 0 && indexArticle >= 0){
+            invoice->setArticles(articles_On_Invoice);
+
+            std::vector<Invoice*> invoices_In_TireCenter = tirecenter.getInvoices();
+            invoices_In_TireCenter.push_back(invoice);
+            tirecenter.setInvoices(invoices_In_TireCenter);
+
+            std::cout << "\nDe bestelling werd toegevoegd" << std::endl;
         }
-        else{
-            std::cout << "\nEr is niet genoeg op voorraad van dit artikel" << std::endl << "Naam: " << article->getName()
-                << "\nHuidige voorraad: " << article->getStock() << std::endl;
-        }
-         
-        std::cout << "Wil je nog een artikel toevoegen? (1=ja,0=nee)" << std::endl;
-        std::cout << "Maak een keuze: ";
-        std::cin >> choice;       
-
-    }while(choice == 1);
-
-    invoice->setArticles(articles_On_Invoice);
-    
-    std::vector<Invoice*> invoices_In_TireCenter = tirecenter.getInvoices();
-    invoices_In_TireCenter.push_back(invoice);
-    tirecenter.setInvoices(invoices_In_TireCenter);
+    }
 }
 
 void check_Invoices(TireCenter &tirecenter){
@@ -578,6 +608,6 @@ void check_Invoices(TireCenter &tirecenter){
         invoice->printInvoice();
     }
     if(i == 0){
-        std::cout << "Er werden geen facturen gevonden." << std::endl;
+        std::cout << "\nEr werden geen facturen gevonden." << std::endl;
     }
 }

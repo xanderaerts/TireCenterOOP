@@ -1,5 +1,16 @@
 #include "include/filehandeling.h"
 
+void loadAll(TireCenter &tirecenter){
+    loadArticles(tirecenter);
+    loadCustomers(tirecenter);
+    loadInvoices(tirecenter);
+}
+
+void saveAll(TireCenter &tirecenter){
+    saveArticles(tirecenter);
+    saveCustomers(tirecenter);
+    saveInvoices(tirecenter);
+} 
 
 void loadArticles(TireCenter &tirecenter){
     std::vector<Article*> articles;
@@ -7,7 +18,6 @@ void loadArticles(TireCenter &tirecenter){
     int amountArt;
 
     std::fstream articlesInFile{"src/data/articles.txt",std::ios::in};
-    //std::fstream articlesInFile{"C:/Users/xande/OneDrive/AAE-ICT/2de_jaar/OOP/eindProject1Oop2021/src/data/articles.txt",std::ios::in};
 
     if(!articlesInFile){
         std::cerr << "Articles file could not be opened" << std::endl;
@@ -88,6 +98,7 @@ void loadArticles(TireCenter &tirecenter){
     }
 
     tirecenter.setArticles(articles);
+    articlesInFile.close();
 }
 
 void loadCustomers(TireCenter &tirecenter){
@@ -96,7 +107,6 @@ void loadCustomers(TireCenter &tirecenter){
     std::string line;
 
     std::fstream customersInFile{"src/data/customers.txt",std::ios::in};
-    //std::fstream customersInFile{"C:/Users/xande/OneDrive/AAE-ICT/2de_jaar/OOP/eindProject1Oop2021/src/data/customers.txt",std::ios::in};
 
     if(!customersInFile){
         std::cerr << "Customers file could not be opened" << std::endl;
@@ -143,6 +153,7 @@ void loadCustomers(TireCenter &tirecenter){
         }
     }
     tirecenter.setCustomers(customers);
+    customersInFile.close();
 }
 
 void loadInvoices(TireCenter &tirecenter){
@@ -152,7 +163,6 @@ void loadInvoices(TireCenter &tirecenter){
 
     
     std::fstream invoicesInFile{"src/data/invoices.txt",std::ios::in};
-    //std::fstream invoicesInFile{"C:/Users/xande/OneDrive/AAE-ICT/2de_jaar/OOP/eindProject1Oop2021/src/data/invoices.txt",std::ios::in};
 
     if(!invoicesInFile){
         std::cerr << "Customers file could not be opened" << std::endl;
@@ -280,5 +290,125 @@ void loadInvoices(TireCenter &tirecenter){
     }
 
     tirecenter.setInvoices(invoices);
+    invoicesInFile.close();
+}
 
+void saveArticles(TireCenter &tirecenter){
+    std::ofstream ArtFile{"src/data/articles.txt",std::ios::out};
+
+    if(!ArtFile){
+        std::cerr << "Articles files could not me opened" << std::endl;
+        exit(EXIT_FAILURE);
+    }
+
+    std::vector<Article*> articles = tirecenter.getArticles();
+    ArtFile << articles.size() << std::endl;
+
+    for(auto article : articles){
+        ArtFile << article->getType() << std::endl
+        << article->getName() << std::endl
+        << article->getManufacturer() << std::endl
+        << article->getStock() << std::endl
+        << article->getDiameter() << std::endl
+        << article->getPrice() << std::endl;
+
+        if(article->getType() == 't'){
+            Tire* tire = dynamic_cast<Tire*>(article);
+
+            ArtFile << tire->getWidth() << std::endl
+            << tire->getHeight() << std::endl
+            << tire->getSpeedIndex() << std::endl
+            << tire->getSeason() << std::endl;
+        }
+        else if(article->getType() == 'r'){
+            Rim* rim = dynamic_cast<Rim*>(article);
+
+            ArtFile << rim->getAluminium() << std::endl
+            << rim->getColor() << std::endl
+            << rim->getWidth() << std::endl;
+        }
+    }
+    ArtFile.close();
+}
+
+void saveCustomers(TireCenter &tirecenter){
+    std::ofstream custFile{"src/data/customers.txt",std::ios::out};
+
+    if(!custFile){
+        std::cerr << "Customers file could be opened" << std::endl;
+        exit(EXIT_FAILURE);
+    }
+
+    std::vector<Customer*> customers = tirecenter.getCustomers();
+
+    custFile << customers.size() << std::endl;
+
+    for(auto customer : customers){
+
+        custFile << customer->getType() << std::endl
+        << customer->getName() << std::endl
+        << customer->getAddress() << std::endl;
+
+        if(customer->getType() == 'c'){
+            Company* company = dynamic_cast<Company*>(customer);
+
+            custFile << company->getVATNr() << std::endl
+            << company->getVolumeDiscount() << std::endl;   
+        }
+    }
+    custFile.close();
+    
+}
+
+void saveInvoices(TireCenter &tirecenter){
+    std::ofstream invFile{"src/data/invoices.txt"};
+
+    if(!invFile){
+        std::cerr << "Invoices file could not be opened" << std::endl;
+        exit(EXIT_FAILURE);
+    }
+
+    std::vector<Invoice*> invoices = tirecenter.getInvoices();
+
+    invFile << invoices.size() << std::endl;
+    for(auto invoice : invoices){
+        invFile << invoice->getArticles().size() << std::endl
+        << invoice->getCustomer()->getType() << std::endl
+        << invoice->getCustomer()->getName() << std::endl
+        << invoice->getCustomer()->getAddress() << std::endl;
+
+        if(invoice->getCustomer()->getType() == 'c'){
+            Company* comp = dynamic_cast<Company*> (invoice->getCustomer());
+            invFile << comp->getVATNr() << std::endl
+            << comp->getVolumeDiscount() << std::endl;
+        }
+
+        for(auto article : invoice->getArticles()){
+            invFile << article->getType() << std::endl
+            << article->getName() << std::endl
+            << article->getManufacturer() << std::endl
+            << article->getStock() << std::endl
+            << article->getDiameter() << std::endl
+            << article->getPrice() << std::endl;
+
+            if(article->getType() == 't'){
+                Tire* tire = dynamic_cast<Tire*>(article);
+
+                invFile << tire->getWidth() << std::endl
+                << tire->getHeight() << std::endl
+                << tire->getSpeedIndex() << std::endl
+                << tire->getSeason() << std::endl;
+            }
+            else if(article->getType() == 'r'){
+                Rim* rim = dynamic_cast<Rim*>(article);
+
+                invFile << rim->getAluminium() << std::endl
+                << rim->getColor() << std::endl
+                << rim->getWidth() << std::endl;
+            }
+        }
+
+        invFile << invoice->getDiscount() << std::endl;
+    }
+    invFile.close();
 }

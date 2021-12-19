@@ -85,7 +85,7 @@ float Invoice::calculatePrice(){
     return 0;
 }
 void Invoice::printInvoice(){
-    std::cout << "-----Invoice-----" << "\n\n" << "Naam: " << getCustomer()->getName()
+    std::cout << "\n-----Invoice-----" << "\n\n" << "Naam: " << getCustomer()->getName()
     << "\nArtikels: ";
     for(auto article : getArticles()){
         std::cout << "\n" << article->getStock() << " keer -> " <<article->getName(); //aantal nog bij zetten

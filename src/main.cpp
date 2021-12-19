@@ -20,9 +20,9 @@ int main(){
     int choice = 0;
     int logged = 0;
 
-    loadArticles(tirecenter);
-    loadCustomers(tirecenter);
-    loadInvoices(tirecenter);
+    loadAll(tirecenter);
+    saveAll(tirecenter);
+
     
     do{
         if(logged == 1){

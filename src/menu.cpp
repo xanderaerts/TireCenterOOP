@@ -9,7 +9,7 @@ std::string useCaseToString(Menu inputUseCase){
     switch(inputUseCase){
         case addOrder:
             return "Bestelling toevoegen";break;
-        case searchArtcle:
+        case searchArticle:
             return "Artikel opvragen";break;
         case addArticle:
             return "Artikel toevoegen";break;
@@ -65,11 +65,11 @@ void printMenuUseCase(TireCenter &tirecenter,User user){
             case 2:
             std::cout << titels[1];
                 if(user.getRole() == "admin"){
-                    std::vector<Menu> UseCaseFunctions{searchArtcle,addArticle,rmArticle,editArticle,goBack};
+                    std::vector<Menu> UseCaseFunctions{addArticle,searchArticle,rmArticle,editArticle,goBack};
                     printMenuUseCaseDetails(UseCaseFunctions,tirecenter,user);
                 }
                 else if(user.getRole() == "worker"){
-                    std::vector<Menu> UseCaseFunctions{searchArtcle,editArticle,goBack};
+                    std::vector<Menu> UseCaseFunctions{editArticle,searchArticle,goBack};
                     printMenuUseCaseDetails(UseCaseFunctions,tirecenter,user);
                 }    
                 break;
@@ -86,6 +86,7 @@ void printMenuUseCase(TireCenter &tirecenter,User user){
                 }
                 break;
             case 4:
+                saveAll(tirecenter);
                 exit(-1);
                 //saving
             default:
@@ -119,7 +120,7 @@ void printMenuUseCaseDetails(std::vector<Menu>UseCaseFunctions,TireCenter &tirec
             case addOrder:
                 add_Order(tirecenter);
                 break;
-            case searchArtcle:
+            case searchArticle:
                 search_Article(tirecenter,false);
                 break;
             case addArticle:

@@ -4,10 +4,11 @@
 #include "article.h"
 #include "actions.h"
 #include "user.h"
+#include "filehandeling.h"
 
 enum Menu{
     addOrder=1,
-    searchArtcle,
+    searchArticle,
     addArticle,
     rmArticle,
     editArticle,
