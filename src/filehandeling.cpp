@@ -6,8 +6,8 @@ void loadArticles(TireCenter &tirecenter){
     std::string line;
     int amountArt;
 
-    //std::fstream articlesInFile{"src/data/articles.txt",std::ios::in};
-    std::fstream articlesInFile{"C:/Users/xande/OneDrive/AAE-ICT/2de_jaar/OOP/eindProject1Oop2021/src/data/articles.txt",std::ios::in};
+    std::fstream articlesInFile{"src/data/articles.txt",std::ios::in};
+    //std::fstream articlesInFile{"C:/Users/xande/OneDrive/AAE-ICT/2de_jaar/OOP/eindProject1Oop2021/src/data/articles.txt",std::ios::in};
 
     if(!articlesInFile){
         std::cerr << "Articles file could not be opened" << std::endl;
@@ -95,8 +95,8 @@ void loadCustomers(TireCenter &tirecenter){
     int amountCust;
     std::string line;
 
-    //std::fstream customersInFile{"src/data/customers.txt",std::ios::in};
-    std::fstream customersInFile{"C:/Users/xande/OneDrive/AAE-ICT/2de_jaar/OOP/eindProject1Oop2021/src/data/customers.txt",std::ios::in};
+    std::fstream customersInFile{"src/data/customers.txt",std::ios::in};
+    //std::fstream customersInFile{"C:/Users/xande/OneDrive/AAE-ICT/2de_jaar/OOP/eindProject1Oop2021/src/data/customers.txt",std::ios::in};
 
     if(!customersInFile){
         std::cerr << "Customers file could not be opened" << std::endl;
@@ -151,8 +151,8 @@ void loadInvoices(TireCenter &tirecenter){
     int amountInvoices,amountArt;
 
     
-    //std::fstream invoicesInFile{"src/data/invoices.txt",std::ios::in};
-    std::fstream invoicesInFile{"C:/Users/xande/OneDrive/AAE-ICT/2de_jaar/OOP/eindProject1Oop2021/src/data/invoices.txt",std::ios::in};
+    std::fstream invoicesInFile{"src/data/invoices.txt",std::ios::in};
+    //std::fstream invoicesInFile{"C:/Users/xande/OneDrive/AAE-ICT/2de_jaar/OOP/eindProject1Oop2021/src/data/invoices.txt",std::ios::in};
 
     if(!invoicesInFile){
         std::cerr << "Customers file could not be opened" << std::endl;
