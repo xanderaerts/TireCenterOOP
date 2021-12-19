@@ -91,7 +91,7 @@ void Invoice::printInvoice(){
         std::cout << "\n" << article->getStock() << " keer -> " <<article->getName(); //aantal nog bij zetten
 
     }
-    std::cout << "\nTOTAAL: " << calculatePrice()
+    std::cout << "\nTOTAAL: " << calculatePrice() << " euro"
         << "\nKorting " << calculateDiscount() << " euro";
 
         std::cout << "\nTotaal na korting: " << calculatePrice() - calculateDiscount() << " euro" << std::endl;
